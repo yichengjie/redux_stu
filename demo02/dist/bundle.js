@@ -48,21 +48,24 @@
 
 	var _store = __webpack_require__(1);
 
-	var _store2 = _interopRequireDefault(_store);
+	_store.store.subscribe(function () {
+	  return console.log('当前status的值为 : ' + JSON.stringify(_store.store.getState()));
+	});
 
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	_store2.default.dispatch({
+	var info1 = _store.store.dispatch({
 	  type: 'COMPLETE_TODO',
 	  index: 1
 	});
 
-	var info1 = _store2.default.dispatch({
+	var info2 = _store.store.dispatch({
+	  type: 'ADD_TODO',
+	  text: 'hello world1'
+	});
+
+	var info4 = _store.store.dispatch({
 	  type: 'SET_VISIBILITY_FILTER',
 	  filter: 'SHOW_COMPLETED'
 	});
-
-	console.info(JSON.stringify(info1));
 
 /***/ },
 /* 1 */
@@ -73,6 +76,7 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+	exports.store = undefined;
 
 	var _redux = __webpack_require__(2);
 
@@ -87,11 +91,11 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var reducer = (0, _redux.combineReducers)({ visibilityFilter: _visibilityFilter2.default, todos: _todos2.default });
-	/*let store = createStore(reducer) ;
+	var store = (0, _redux.createStore)(reducer);
 
-	export {store} ;*/
+	exports.store = store;
 
-	exports.default = (0, _redux.createStore)(reducer);
+	//export default createStore(reducer) ;
 
 /***/ },
 /* 2 */
@@ -1098,6 +1102,9 @@
 	  var state = arguments.length <= 0 || arguments[0] === undefined ? [] : arguments[0];
 	  var action = arguments[1];
 
+
+	  //console.info('json --- >: ' + JSON.stringify(state)) ;
+
 	  switch (action.type) {
 	    case 'ADD_TODO':
 	      return [].concat(_toConsumableArray(state), [{
@@ -1113,6 +1120,8 @@
 	        }
 	        return todo;
 	      });
+	    case 'GETALL_TODO':
+	      return state;
 	    default:
 	      return state;
 	  }

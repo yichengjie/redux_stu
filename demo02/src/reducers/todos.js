@@ -1,4 +1,7 @@
 export default function todos(state = [], action) {
+
+  //console.info('json --- >: ' + JSON.stringify(state)) ;
+
   switch (action.type) {
     case 'ADD_TODO':
       return [
@@ -17,6 +20,8 @@ export default function todos(state = [], action) {
         }
         return todo;
       });
+    case 'GETALL_TODO':
+      return state;
     default:
       return state;
   }
