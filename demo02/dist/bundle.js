@@ -48,12 +48,16 @@
 
 	var _store = __webpack_require__(1);
 
-	_store.store.dispatch({
+	var _store2 = _interopRequireDefault(_store);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	_store2.default.dispatch({
 	  type: 'COMPLETE_TODO',
 	  index: 1
 	});
 
-	var info1 = _store.store.dispatch({
+	var info1 = _store2.default.dispatch({
 	  type: 'SET_VISIBILITY_FILTER',
 	  filter: 'SHOW_COMPLETED'
 	});
@@ -69,7 +73,6 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	exports.store = undefined;
 
 	var _redux = __webpack_require__(2);
 
@@ -84,9 +87,11 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var reducer = (0, _redux.combineReducers)({ visibilityFilter: _visibilityFilter2.default, todos: _todos2.default });
-	var store = (0, _redux.createStore)(reducer);
+	/*let store = createStore(reducer) ;
 
-	exports.store = store;
+	export {store} ;*/
+
+	exports.default = (0, _redux.createStore)(reducer);
 
 /***/ },
 /* 2 */
