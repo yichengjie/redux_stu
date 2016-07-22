@@ -1,0 +1,20 @@
+{
+  "name": "redux_stu",
+  "description": "yicj redux",
+  "main": "index.js",
+  "authors": [
+    "yicj"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "redux"
+  ],
+  "homepage": "https://github.com/yichengjie/redux_stu",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
