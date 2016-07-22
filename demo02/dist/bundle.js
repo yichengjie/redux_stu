@@ -46,17 +46,19 @@
 
 	'use strict';
 
-	var _test = __webpack_require__(1);
+	var _store = __webpack_require__(1);
 
-	var _test2 = _interopRequireDefault(_test);
+	_store.store.dispatch({
+	  type: 'COMPLETE_TODO',
+	  index: 1
+	});
 
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	var info1 = _store.store.dispatch({
+	  type: 'SET_VISIBILITY_FILTER',
+	  filter: 'SHOW_COMPLETED'
+	});
 
-	function test() {
-		(0, _test2.default)();
-	}
-
-	test();
+	console.info(JSON.stringify(info1));
 
 /***/ },
 /* 1 */
@@ -65,61 +67,26 @@
 	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
-		value: true
+	  value: true
 	});
-	exports.default = test1;
+	exports.store = undefined;
 
 	var _redux = __webpack_require__(2);
 
-	function test1() {
-		/**
-	  * 这是一个 reducer，形式为 (state, action) => state 的纯函数。
-	  * 描述了 action 如何把 state 转变成下一个 state。
-	  *
-	  * state 的形式取决于你，可以是基本类型、数组、对象、
-	  * 甚至是 Immutable.js 生成的数据结构。惟一的要点是
-	  * 当 state 变化时需要返回全新的对象，而不是修改传入的参数。
-	  *
-	  * 下面例子使用 `switch` 语句和字符串来做判断，但你可以写帮助类(helper)
-	  * 根据不同的约定（如方法映射）来判断，只要适用你的项目即可。
-	  */
-		function counter() {
-			var state = arguments.length <= 0 || arguments[0] === undefined ? 0 : arguments[0];
-			var action = arguments[1];
+	var _visibilityFilter = __webpack_require__(16);
 
-			switch (action.type) {
-				case 'INCREMENT':
-					return state + 1;
-				case 'DECREMENT':
-					return state - 1;
-				default:
-					return state;
-			}
-		}
+	var _visibilityFilter2 = _interopRequireDefault(_visibilityFilter);
 
-		// 创建 Redux store 来存放应用的状态。
-		// API 是 { subscribe, dispatch, getState }。
-		var store = (0, _redux.createStore)(counter);
+	var _todos = __webpack_require__(17);
 
-		// 可以手动订阅更新，也可以事件绑定到视图层。
-		store.subscribe(function () {
-			return console.log('当前status的值为 : ' + store.getState());
-		});
+	var _todos2 = _interopRequireDefault(_todos);
 
-		// 改变内部 state 惟一方法是 dispatch 一个 action。
-		// action 可以被序列化，用日记记录和储存下来，后期还可以以回放的方式执行
-		store.dispatch({ type: 'INCREMENT' });
-		// 1
-		store.dispatch({ type: 'INCREMENT' });
-		store.dispatch({ type: 'INCREMENT' });
-		store.dispatch({ type: 'INCREMENT' });
-		store.dispatch({ type: 'INCREMENT' });
-		store.dispatch({ type: 'INCREMENT' });
-		store.dispatch({ type: 'INCREMENT' });
-		// 2
-		store.dispatch({ type: 'DECREMENT' });
-		// 1
-	}
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var reducer = (0, _redux.combineReducers)({ visibilityFilter: _visibilityFilter2.default, todos: _todos2.default });
+	var store = (0, _redux.createStore)(reducer);
+
+	exports.store = store;
 
 /***/ },
 /* 2 */
@@ -1083,6 +1050,66 @@
 	    }();
 
 	    if (typeof _ret === "object") return _ret.v;
+	  }
+	}
+
+/***/ },
+/* 16 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	function visibilityFilter() {
+	  var state = arguments.length <= 0 || arguments[0] === undefined ? 'SHOW_ALL' : arguments[0];
+	  var action = arguments[1];
+
+	  switch (action.type) {
+	    case 'SET_VISIBILITY_FILTER':
+	      return action.filter;
+	    default:
+	      return state;
+	  }
+	}
+
+	exports.default = visibilityFilter;
+
+/***/ },
+/* 17 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.default = todos;
+
+	function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+
+	function todos() {
+	  var state = arguments.length <= 0 || arguments[0] === undefined ? [] : arguments[0];
+	  var action = arguments[1];
+
+	  switch (action.type) {
+	    case 'ADD_TODO':
+	      return [].concat(_toConsumableArray(state), [{
+	        text: action.text,
+	        completed: false
+	      }]);
+	    case 'COMPLETE_TODO':
+	      return state.map(function (todo, index) {
+	        if (index === action.index) {
+	          return Object.assign({}, todo, {
+	            completed: true
+	          });
+	        }
+	        return todo;
+	      });
+	    default:
+	      return state;
 	  }
 	}
 
