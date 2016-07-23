@@ -36,6 +36,9 @@ export default function test1(){
 
 
 
+
+	console.info('store ------> : ' ,store.getState()) ;
+
 	// 改变内部 state 惟一方法是 dispatch 一个 action。
 	// action 可以被序列化，用日记记录和储存下来，后期还可以以回放的方式执行
 	store.dispatch({ type: 'INCREMENT' });
