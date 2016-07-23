@@ -12,11 +12,19 @@ module.exports = {
         extensions: ['', '.js', '.jsx']
     },
     module: {
+        preLoaders: [
+          {
+            test: /\.(js|jsx)$/,
+            loader: 'eslint-loader',
+            include: [path.resolve(__dirname, "src")],
+            exclude: /(node_modules|bower_components)/
+          },
+        ],
         loaders: [
             {
                 test: /.(jsx|js)?$/,
                 exclude: /(node_modules|bower_components)/,
-                loaders: [ "babel-loader"]
+                loader:"babel-loader"
             }
         ]
     }/*,
