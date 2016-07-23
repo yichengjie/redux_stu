@@ -18,5 +18,5 @@ var info2 = store.dispatch({
 var info4 = store.dispatch({
   type: 'SET_VISIBILITY_FILTER',
   filter: 'SHOW_COMPLETED'
-});
+}) ;
 

@@ -23,10 +23,7 @@ module.exports = {
                 test: /.(jsx|js)?$/,
                 loader: 'babel',
                 exclude: /(node_modules|bower_components)/,
-                loader: 'babel', // 'babel-loader' is also a legal name to reference
-                query: {
-                    presets: ['es2015', 'react']
-                }
+                loader: 'babel' // 'babel-loader' is also a legal name to reference
             }
         ]
     }/*,

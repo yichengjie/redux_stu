@@ -1,12 +1,12 @@
 {
     "parserOptions": {
-        "ecmaVersion": 6,
+        "ecmaVersion": 7,
         "sourceType": "module",
         "ecmaFeatures": {
             "jsx": true
         }
     },
     "rules": {
-        "semi": 0/*2会检查结尾分号*/
+        "semi": 2
     }
 }

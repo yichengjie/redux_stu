@@ -8,24 +8,15 @@ module.exports = {
         filename: 'bundle.js',
         publicPath:'./dist'
     },
+    resolve: {
+        extensions: ['', '.js', '.jsx']
+    },
     module: {
-        preLoaders: [
-          {
-            test: /\.(js|jsx)$/,
-            loader: 'eslint-loader',
-            include: [path.resolve(__dirname, "src")],
-            exclude: /(node_modules|bower_components)/
-          },
-        ],
         loaders: [
             {
                 test: /.(jsx|js)?$/,
-                loader: 'babel',
                 exclude: /(node_modules|bower_components)/,
-                loader: 'babel', // 'babel-loader' is also a legal name to reference
-                query: {
-                    presets: ['es2015', 'react']
-                }
+                loaders: [ "babel-loader"]
             }
         ]
     }/*,
