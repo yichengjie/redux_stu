@@ -22963,7 +22963,7 @@
 /* 261 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
@@ -22993,6 +22993,10 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _OperNavBar = __webpack_require__(262);
+
+	var _OperNavBar2 = _interopRequireDefault(_OperNavBar);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var MainContent = function (_Component) {
@@ -23004,119 +23008,96 @@
 	    }
 
 	    (0, _createClass3.default)(MainContent, [{
-	        key: "render",
+	        key: 'render',
 	        value: function render() {
 	            return _react2.default.createElement(
-	                "div",
-	                { className: "container-fluid main_content", id: "main_content" },
+	                'div',
+	                { className: 'container-fluid main_content', id: 'main_content' },
+	                _react2.default.createElement(_OperNavBar2.default, null),
+	                _react2.default.createElement('span', { className: 'clearfix' }),
 	                _react2.default.createElement(
-	                    "div",
-	                    { className: "pull-right clearfix", style: { "marginBottom": "8px" } },
+	                    'div',
+	                    { id: 'brand_group_list' },
 	                    _react2.default.createElement(
-	                        "button",
-	                        { type: "button", className: "btn btn-sm btn-success" },
-	                        "新建品牌集"
-	                    ),
-	                    _react2.default.createElement(
-	                        "button",
-	                        { className: "btn btn-info btn-sm" },
-	                        "发布"
-	                    ),
-	                    _react2.default.createElement(
-	                        "button",
-	                        { className: "btn btn-warning btn-sm" },
-	                        "截止"
-	                    ),
-	                    _react2.default.createElement(
-	                        "button",
-	                        { className: "btn btn-danger btn-sm" },
-	                        "删除"
-	                    )
-	                ),
-	                _react2.default.createElement("span", { className: "clearfix" }),
-	                _react2.default.createElement(
-	                    "div",
-	                    { id: "brand_group_list" },
-	                    _react2.default.createElement(
-	                        "div",
-	                        { className: "panel panel-default brand_group" },
+	                        'div',
+	                        { className: 'panel panel-default brand_group' },
 	                        _react2.default.createElement(
-	                            "div",
-	                            { className: "panel-heading" },
+	                            'div',
+	                            { className: 'panel-heading' },
 	                            _react2.default.createElement(
-	                                "div",
-	                                { className: "panel-title" },
+	                                'div',
+	                                { className: 'panel-title' },
 	                                _react2.default.createElement(
-	                                    "div",
-	                                    { className: "panel-title" },
+	                                    'div',
+	                                    { className: 'panel-title' },
 	                                    _react2.default.createElement(
-	                                        "div",
-	                                        { className: "brand_title" },
+	                                        'div',
+	                                        { className: 'brand_title' },
 	                                        _react2.default.createElement(
-	                                            "span",
-	                                            { className: "left text-info" },
-	                                            _react2.default.createElement("input", { name: "checkAll", type: "checkbox" }),
-	                                            _react2.default.createElement("i", { className: "glyphicon glyphicon-upload marginL10", "data-name": "showHideBody" }),
-	                                            "asgui_ca test",
-	                                            _react2.default.createElement("i", { className: "glyphicon glyphicon-info-sign pull-right descrImg", "data-toggle": "tooltip",
-	                                                "data-placement": "top", title: "描述信息为空" })
+	                                            'span',
+	                                            { className: 'left text-info' },
+	                                            _react2.default.createElement('input', { name: 'checkAll', type: 'checkbox' }),
+	                                            _react2.default.createElement('i', { className: 'glyphicon glyphicon-upload marginL10', 'data-name': 'showHideBody' }),
+	                                            'asgui_ca test',
+	                                            _react2.default.createElement('i', { className: 'glyphicon glyphicon-info-sign pull-right descrImg', 'data-toggle': 'tooltip',
+	                                                'data-placement': 'top', title: '描述信息为空' })
 	                                        ),
 	                                        _react2.default.createElement(
-	                                            "span",
-	                                            { className: "right" },
-	                                            _react2.default.createElement("i", { className: "glyphicon glyphicon-pencil marginR10 myhand" }),
+	                                            'span',
+	                                            { className: 'right' },
+	                                            _react2.default.createElement('i', { className: 'glyphicon glyphicon-pencil marginR10 myhand' }),
 	                                            _react2.default.createElement(
-	                                                "button",
-	                                                { type: "button", className: "btn btn-success btn-sm" },
-	                                                "新建品牌"
+	                                                'button',
+	                                                { type: 'button', className: 'btn btn-success btn-sm' },
+	                                                '新建品牌'
 	                                            )
 	                                        ),
 	                                        _react2.default.createElement(
-	                                            "span",
-	                                            { className: "center" },
+	                                            'span',
+	                                            { className: 'center' },
 	                                            _react2.default.createElement(
-	                                                "span",
+	                                                'span',
 	                                                null,
-	                                                "序列号：8776559"
+	                                                '序列号：8776559'
 	                                            ),
 	                                            _react2.default.createElement(
-	                                                "span",
-	                                                { className: "marginL10" },
-	                                                "城市对：",
+	                                                'span',
+	                                                { className: 'marginL10' },
+	                                                '城市对：',
 	                                                _react2.default.createElement(
-	                                                    "span",
-	                                                    { className: "bold" },
-	                                                    "1 → 2"
+	                                                    'span',
+	                                                    { className: 'bold' },
+	                                                    '1 → 2'
 	                                                )
 	                                            ),
 	                                            _react2.default.createElement(
-	                                                "span",
-	                                                { className: "marginL10" },
-	                                                "生效日期对：",
+	                                                'span',
+	                                                { className: 'marginL10' },
+	                                                '生效日期对：',
 	                                                _react2.default.createElement(
-	                                                    "span",
-	                                                    { className: "bold" },
-	                                                    "2016-06-30 — 9999-12-31"
+	                                                    'span',
+	                                                    { className: 'bold' },
+	                                                    '2016-06-30 — 9999-12-31'
 	                                                )
 	                                            ),
 	                                            _react2.default.createElement(
-	                                                "span",
-	                                                { className: "marginL10" },
-	                                                "旅行日期对：",
+	                                                'span',
+	                                                { className: 'marginL10' },
+	                                                '旅行日期对：',
 	                                                _react2.default.createElement(
-	                                                    "span",
-	                                                    { className: "bold" },
-	                                                    "2016-06-30 — 9999-12-31"
+	                                                    'span',
+	                                                    { className: 'bold' },
+	                                                    '2016-06-30 — 9999-12-31'
 	                                                )
 	                                            ),
 	                                            _react2.default.createElement(
-	                                                "span",
-	                                                { className: "marginL10" },
-	                                                "发布对象：状态：",
+	                                                'span',
+	                                                { className: 'marginL10' },
+	                                                '发布对象：状态：',
 	                                                _react2.default.createElement(
-	                                                    "span",
-	                                                    { className: "text-danger" },
-	                                                    "未发布"
+	                                                    'span',
+	                                                    { className: 'text-danger' },
+	                                                    '未发布'
 	                                                )
 	                                            )
 	                                        )
@@ -23125,9 +23106,9 @@
 	                            )
 	                        ),
 	                        _react2.default.createElement(
-	                            "div",
-	                            { className: "panel-body" },
-	                            _react2.default.createElement("ul", null)
+	                            'div',
+	                            { className: 'panel-body' },
+	                            _react2.default.createElement('ul', null)
 	                        )
 	                    )
 	                )
@@ -23138,6 +23119,84 @@
 	}(_react.Component);
 
 	exports.default = MainContent;
+
+/***/ },
+/* 262 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _getPrototypeOf = __webpack_require__(173);
+
+	var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+
+	var _classCallCheck2 = __webpack_require__(199);
+
+	var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+	var _createClass2 = __webpack_require__(200);
+
+	var _createClass3 = _interopRequireDefault(_createClass2);
+
+	var _possibleConstructorReturn2 = __webpack_require__(204);
+
+	var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+	var _inherits2 = __webpack_require__(251);
+
+	var _inherits3 = _interopRequireDefault(_inherits2);
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var OperNavBar = function (_Component) {
+	  (0, _inherits3.default)(OperNavBar, _Component);
+
+	  function OperNavBar(props) {
+	    (0, _classCallCheck3.default)(this, OperNavBar);
+	    return (0, _possibleConstructorReturn3.default)(this, (0, _getPrototypeOf2.default)(OperNavBar).call(this, props));
+	  }
+
+	  (0, _createClass3.default)(OperNavBar, [{
+	    key: "render",
+	    value: function render() {
+	      return _react2.default.createElement(
+	        "div",
+	        { className: "pull-right clearfix", style: { "marginBottom": "8px" } },
+	        _react2.default.createElement(
+	          "button",
+	          { type: "button", className: "btn btn-sm btn-success" },
+	          "新建品牌集"
+	        ),
+	        _react2.default.createElement(
+	          "button",
+	          { className: "btn btn-info btn-sm" },
+	          "发布"
+	        ),
+	        _react2.default.createElement(
+	          "button",
+	          { className: "btn btn-warning btn-sm" },
+	          "截止"
+	        ),
+	        _react2.default.createElement(
+	          "button",
+	          { className: "btn btn-danger btn-sm" },
+	          "删除"
+	        )
+	      );
+	    }
+	  }]);
+	  return OperNavBar;
+	}(_react.Component);
+
+	exports.default = OperNavBar;
 
 /***/ }
 /******/ ]);
