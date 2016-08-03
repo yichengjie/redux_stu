@@ -3,13 +3,15 @@ var webpack = require('webpack');
 
 module.exports = {
     entry: {
-      "query":'./src/query.js'
+      "query":'./src/query.js',
+      "edit":'./src/edit.js'
     },
     output: {
         path: __dirname+"/dist",
         filename: '[name].js',
         publicPath:'./dist'
     },
+    devtool: 'eval-source-map',
     module: {
         preLoaders: [
           {
