@@ -19,7 +19,12 @@ class HeaderNav extends Component {
               </div>
               <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-9">
                   <ul className="nav navbar-nav">
-                      <li className="active"><a href="index.html">品牌服务</a></li>
+                      <li className="active">
+                        <a href="index.html">品牌服务</a>
+                      </li>
+                      <li>
+                        <a href="edit.html">品牌组编辑</a>
+                      </li>
                   </ul>
               </div>
           </div>
