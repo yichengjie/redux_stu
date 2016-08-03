@@ -2,9 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import HeaderNav from '../../components/HeaderNav.jsx' ;
 import QuerySection from './QuerySection.jsx';
 import OperNavBar from './OperNavBar.jsx' ;
-//import BrandTitle from './BrandTitle.jsx' ;
-//import BrandItem from './BrandItem.jsx' ;
-import BrandGroupItem from './BrandGroupItem.jsx' ;
+import BrandGroupPanel from './BrandGroupPanel.jsx' ;
 
 
 class AppLayout extends Component {
@@ -48,7 +46,7 @@ class AppLayout extends Component {
                   {
                     this.state.list.map((item) => {
                       return  (
-                        <BrandGroupItem
+                        <BrandGroupPanel
                           s5 = {item}
                           key ={item.id}
                         />

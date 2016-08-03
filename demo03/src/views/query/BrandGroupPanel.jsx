@@ -2,7 +2,7 @@ import React ,{Component} from 'react';
 import RecordS5Item from './RecordS5Item.jsx' ;
 import RecordS7Item from './RecordS7Item.jsx' ;
 
-class BrandGroupItem extends Component {
+class BrandGroupPanel extends Component {
   constructor(props) {
     super(props) ;
   }
@@ -33,4 +33,4 @@ class BrandGroupItem extends Component {
     ) ;
   }
 }
-export default BrandGroupItem ;
+export default BrandGroupPanel ;

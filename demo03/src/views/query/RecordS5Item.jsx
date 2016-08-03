@@ -5,10 +5,8 @@ class RecordS5Item extends Component {
     super(props) ;
   }
   render (){
-
     let {id,title,seqNum,startCity,endCity,startDate,
       endDate,travelStart,travelEnd,pubObj,stateDesc} = this.props.s5 ;
-
     return (
       <div className="brand_title">
           <span className="left text-info">
