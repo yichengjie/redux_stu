@@ -1,22 +1,24 @@
 import React ,{Component} from 'react';
 
-class BrandItem extends Component {
+class RecordS7Item extends Component {
   constructor(props) {
     super(props) ;
   }
   render (){
+    let {id,name,levelNum,desc} = this.props.s7 ;
+    let index  = this.props.index;
     return (
       <li className="brand_list">
           <div className="brand_list_item item1">
-              2
+            {index}
           </div>
           <div className="brand_list_item">
               <span className="brand_img brand_img_ca"></span>
           </div>
           <div className="brand_list_item">
-              <p className="brand_name">xx001</p>
-              <p>层级序号：10011</p>
-              <p>测试一下啊这里的描述信息</p>
+              <p className="brand_name">{name}</p>
+              <p>层级序号：{levelNum}</p>
+              <p>{desc}</p>
           </div>
           <div className="brand_list_item pull-right">
               <p><i className="glyphicon glyphicon-search myhand"></i></p>
@@ -27,4 +29,4 @@ class BrandItem extends Component {
     ) ;
   }
 }
-export default BrandItem ;
+export default RecordS7Item ;

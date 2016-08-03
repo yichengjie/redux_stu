@@ -2,12 +2,37 @@ import React, { Component, PropTypes } from 'react';
 import HeaderNav from '../../components/HeaderNav.jsx' ;
 import QuerySection from './QuerySection.jsx';
 import OperNavBar from './OperNavBar.jsx' ;
-import BrandTitle from './BrandTitle.jsx' ;
-import BrandItem from './BrandItem.jsx' ;
+//import BrandTitle from './BrandTitle.jsx' ;
+//import BrandItem from './BrandItem.jsx' ;
+import BrandGroupItem from './BrandGroupItem.jsx' ;
+
 
 class AppLayout extends Component {
   constructor(props) {
     super(props) ;
+    this.state = {list: [{
+        id:'001',title:'asgui_ca test',seqNum:'8776559',startCity:'1',endCity:'2',
+        startDate:'2016-06-30',endDate:'9999-12-31',travelStart:'2016-06-30',
+        travelEnd:'2016-06-30',pubObj:'001',stateDesc:'未发布',list:[{
+            id:"001",
+            name:'xx001',
+            levelNum:'10011',
+            desc:'测试一下啊这里的描述信息'
+          },
+          {
+            id:"002",
+            name:'xx002',
+            levelNum:'10013',
+            desc:'测试一下啊这里的描述信息'
+          },{
+            id:"003",
+            name:'xx003',
+            levelNum:'10013',
+            desc:'测试一下啊这里的描述信息'
+          }
+        ]
+      }
+    ]};
   }
   render(){
     return (
@@ -20,25 +45,20 @@ class AppLayout extends Component {
               <OperNavBar/>
               <span className="clearfix"></span>
               <div id="brand_group_list">
-
-                  <div className="panel panel-default brand_group" >
-                      <div className="panel-heading">
-                        <div className="panel-title">
-                          <BrandTitle/>
-                        </div>
-                      </div>
-                      <div className="panel-body">
-                          <ul>
-                            <BrandItem/>
-                          </ul>
-                      </div>
-                  </div>
-
+                  {
+                    this.state.list.map((item) => {
+                      return  (
+                        <BrandGroupItem
+                          s5 = {item}
+                          key ={item.id}
+                        />
+                      ) ;
+                    })
+                  }
               </div>
           </div>
       </div>
     ) ;
   }
 }
-
 export default AppLayout ;
