@@ -22966,7 +22966,7 @@
 	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
-	    value: true
+	  value: true
 	});
 
 	var _getPrototypeOf = __webpack_require__(173);
@@ -22997,125 +22997,62 @@
 
 	var _OperNavBar2 = _interopRequireDefault(_OperNavBar);
 
+	var _BrandTitle = __webpack_require__(263);
+
+	var _BrandTitle2 = _interopRequireDefault(_BrandTitle);
+
+	var _BrandItem = __webpack_require__(264);
+
+	var _BrandItem2 = _interopRequireDefault(_BrandItem);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var MainContent = function (_Component) {
-	    (0, _inherits3.default)(MainContent, _Component);
+	  (0, _inherits3.default)(MainContent, _Component);
 
-	    function MainContent(props) {
-	        (0, _classCallCheck3.default)(this, MainContent);
-	        return (0, _possibleConstructorReturn3.default)(this, (0, _getPrototypeOf2.default)(MainContent).call(this, props));
-	    }
+	  function MainContent(props) {
+	    (0, _classCallCheck3.default)(this, MainContent);
+	    return (0, _possibleConstructorReturn3.default)(this, (0, _getPrototypeOf2.default)(MainContent).call(this, props));
+	  }
 
-	    (0, _createClass3.default)(MainContent, [{
-	        key: 'render',
-	        value: function render() {
-	            return _react2.default.createElement(
+	  (0, _createClass3.default)(MainContent, [{
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'div',
+	        { className: 'container-fluid main_content', id: 'main_content' },
+	        _react2.default.createElement(_OperNavBar2.default, null),
+	        _react2.default.createElement('span', { className: 'clearfix' }),
+	        _react2.default.createElement(
+	          'div',
+	          { id: 'brand_group_list' },
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'panel panel-default brand_group' },
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'panel-heading' },
+	              _react2.default.createElement(
 	                'div',
-	                { className: 'container-fluid main_content', id: 'main_content' },
-	                _react2.default.createElement(_OperNavBar2.default, null),
-	                _react2.default.createElement('span', { className: 'clearfix' }),
-	                _react2.default.createElement(
-	                    'div',
-	                    { id: 'brand_group_list' },
-	                    _react2.default.createElement(
-	                        'div',
-	                        { className: 'panel panel-default brand_group' },
-	                        _react2.default.createElement(
-	                            'div',
-	                            { className: 'panel-heading' },
-	                            _react2.default.createElement(
-	                                'div',
-	                                { className: 'panel-title' },
-	                                _react2.default.createElement(
-	                                    'div',
-	                                    { className: 'panel-title' },
-	                                    _react2.default.createElement(
-	                                        'div',
-	                                        { className: 'brand_title' },
-	                                        _react2.default.createElement(
-	                                            'span',
-	                                            { className: 'left text-info' },
-	                                            _react2.default.createElement('input', { name: 'checkAll', type: 'checkbox' }),
-	                                            _react2.default.createElement('i', { className: 'glyphicon glyphicon-upload marginL10', 'data-name': 'showHideBody' }),
-	                                            'asgui_ca test',
-	                                            _react2.default.createElement('i', { className: 'glyphicon glyphicon-info-sign pull-right descrImg', 'data-toggle': 'tooltip',
-	                                                'data-placement': 'top', title: '描述信息为空' })
-	                                        ),
-	                                        _react2.default.createElement(
-	                                            'span',
-	                                            { className: 'right' },
-	                                            _react2.default.createElement('i', { className: 'glyphicon glyphicon-pencil marginR10 myhand' }),
-	                                            _react2.default.createElement(
-	                                                'button',
-	                                                { type: 'button', className: 'btn btn-success btn-sm' },
-	                                                '新建品牌'
-	                                            )
-	                                        ),
-	                                        _react2.default.createElement(
-	                                            'span',
-	                                            { className: 'center' },
-	                                            _react2.default.createElement(
-	                                                'span',
-	                                                null,
-	                                                '序列号：8776559'
-	                                            ),
-	                                            _react2.default.createElement(
-	                                                'span',
-	                                                { className: 'marginL10' },
-	                                                '城市对：',
-	                                                _react2.default.createElement(
-	                                                    'span',
-	                                                    { className: 'bold' },
-	                                                    '1 → 2'
-	                                                )
-	                                            ),
-	                                            _react2.default.createElement(
-	                                                'span',
-	                                                { className: 'marginL10' },
-	                                                '生效日期对：',
-	                                                _react2.default.createElement(
-	                                                    'span',
-	                                                    { className: 'bold' },
-	                                                    '2016-06-30 — 9999-12-31'
-	                                                )
-	                                            ),
-	                                            _react2.default.createElement(
-	                                                'span',
-	                                                { className: 'marginL10' },
-	                                                '旅行日期对：',
-	                                                _react2.default.createElement(
-	                                                    'span',
-	                                                    { className: 'bold' },
-	                                                    '2016-06-30 — 9999-12-31'
-	                                                )
-	                                            ),
-	                                            _react2.default.createElement(
-	                                                'span',
-	                                                { className: 'marginL10' },
-	                                                '发布对象：状态：',
-	                                                _react2.default.createElement(
-	                                                    'span',
-	                                                    { className: 'text-danger' },
-	                                                    '未发布'
-	                                                )
-	                                            )
-	                                        )
-	                                    )
-	                                )
-	                            )
-	                        ),
-	                        _react2.default.createElement(
-	                            'div',
-	                            { className: 'panel-body' },
-	                            _react2.default.createElement('ul', null)
-	                        )
-	                    )
-	                )
-	            );
-	        }
-	    }]);
-	    return MainContent;
+	                { className: 'panel-title' },
+	                _react2.default.createElement(_BrandTitle2.default, null)
+	              )
+	            ),
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'panel-body' },
+	              _react2.default.createElement(
+	                'ul',
+	                null,
+	                _react2.default.createElement(_BrandItem2.default, null)
+	              )
+	            )
+	          )
+	        )
+	      );
+	    }
+	  }]);
+	  return MainContent;
 	}(_react.Component);
 
 	exports.default = MainContent;
@@ -23197,6 +23134,238 @@
 	}(_react.Component);
 
 	exports.default = OperNavBar;
+
+/***/ },
+/* 263 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _getPrototypeOf = __webpack_require__(173);
+
+	var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+
+	var _classCallCheck2 = __webpack_require__(199);
+
+	var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+	var _createClass2 = __webpack_require__(200);
+
+	var _createClass3 = _interopRequireDefault(_createClass2);
+
+	var _possibleConstructorReturn2 = __webpack_require__(204);
+
+	var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+	var _inherits2 = __webpack_require__(251);
+
+	var _inherits3 = _interopRequireDefault(_inherits2);
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var BrandTitle = function (_Component) {
+	  (0, _inherits3.default)(BrandTitle, _Component);
+
+	  function BrandTitle(props) {
+	    (0, _classCallCheck3.default)(this, BrandTitle);
+	    return (0, _possibleConstructorReturn3.default)(this, (0, _getPrototypeOf2.default)(BrandTitle).call(this, props));
+	  }
+
+	  (0, _createClass3.default)(BrandTitle, [{
+	    key: "render",
+	    value: function render() {
+	      return _react2.default.createElement(
+	        "div",
+	        { className: "brand_title" },
+	        _react2.default.createElement(
+	          "span",
+	          { className: "left text-info" },
+	          _react2.default.createElement("input", { name: "checkAll", type: "checkbox" }),
+	          _react2.default.createElement("i", { className: "glyphicon glyphicon-upload marginL10", "data-name": "showHideBody" }),
+	          "asgui_ca test",
+	          _react2.default.createElement("i", { className: "glyphicon glyphicon-info-sign pull-right descrImg", "data-toggle": "tooltip",
+	            "data-placement": "top", title: "描述信息为空" })
+	        ),
+	        _react2.default.createElement(
+	          "span",
+	          { className: "right" },
+	          _react2.default.createElement("i", { className: "glyphicon glyphicon-pencil marginR10 myhand" }),
+	          _react2.default.createElement(
+	            "button",
+	            { type: "button", className: "btn btn-success btn-sm" },
+	            "新建品牌"
+	          )
+	        ),
+	        _react2.default.createElement(
+	          "span",
+	          { className: "center" },
+	          _react2.default.createElement(
+	            "span",
+	            null,
+	            "序列号：8776559"
+	          ),
+	          _react2.default.createElement(
+	            "span",
+	            { className: "marginL10" },
+	            "城市对：",
+	            _react2.default.createElement(
+	              "span",
+	              { className: "bold" },
+	              "1 → 2"
+	            )
+	          ),
+	          _react2.default.createElement(
+	            "span",
+	            { className: "marginL10" },
+	            "生效日期对：",
+	            _react2.default.createElement(
+	              "span",
+	              { className: "bold" },
+	              "2016-06-30 — 9999-12-31"
+	            )
+	          ),
+	          _react2.default.createElement(
+	            "span",
+	            { className: "marginL10" },
+	            "旅行日期对：",
+	            _react2.default.createElement(
+	              "span",
+	              { className: "bold" },
+	              "2016-06-30 — 9999-12-31"
+	            )
+	          ),
+	          _react2.default.createElement(
+	            "span",
+	            { className: "marginL10" },
+	            "发布对象：状态：",
+	            _react2.default.createElement(
+	              "span",
+	              { className: "text-danger" },
+	              "未发布"
+	            )
+	          )
+	        )
+	      );
+	    }
+	  }]);
+	  return BrandTitle;
+	}(_react.Component);
+
+	exports.default = BrandTitle;
+
+/***/ },
+/* 264 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _getPrototypeOf = __webpack_require__(173);
+
+	var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+
+	var _classCallCheck2 = __webpack_require__(199);
+
+	var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+	var _createClass2 = __webpack_require__(200);
+
+	var _createClass3 = _interopRequireDefault(_createClass2);
+
+	var _possibleConstructorReturn2 = __webpack_require__(204);
+
+	var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+	var _inherits2 = __webpack_require__(251);
+
+	var _inherits3 = _interopRequireDefault(_inherits2);
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var BrandItem = function (_Component) {
+	    (0, _inherits3.default)(BrandItem, _Component);
+
+	    function BrandItem(props) {
+	        (0, _classCallCheck3.default)(this, BrandItem);
+	        return (0, _possibleConstructorReturn3.default)(this, (0, _getPrototypeOf2.default)(BrandItem).call(this, props));
+	    }
+
+	    (0, _createClass3.default)(BrandItem, [{
+	        key: "render",
+	        value: function render() {
+	            return _react2.default.createElement(
+	                "li",
+	                { className: "brand_list" },
+	                _react2.default.createElement(
+	                    "div",
+	                    { className: "brand_list_item item1" },
+	                    "2"
+	                ),
+	                _react2.default.createElement(
+	                    "div",
+	                    { className: "brand_list_item" },
+	                    _react2.default.createElement("span", { className: "brand_img brand_img_ca" })
+	                ),
+	                _react2.default.createElement(
+	                    "div",
+	                    { className: "brand_list_item" },
+	                    _react2.default.createElement(
+	                        "p",
+	                        { className: "brand_name" },
+	                        "xx001"
+	                    ),
+	                    _react2.default.createElement(
+	                        "p",
+	                        null,
+	                        "层级序号：10011"
+	                    ),
+	                    _react2.default.createElement(
+	                        "p",
+	                        null,
+	                        "测试一下啊这里的描述信息"
+	                    )
+	                ),
+	                _react2.default.createElement(
+	                    "div",
+	                    { className: "brand_list_item pull-right" },
+	                    _react2.default.createElement(
+	                        "p",
+	                        null,
+	                        _react2.default.createElement("i", { className: "glyphicon glyphicon-search myhand" })
+	                    ),
+	                    _react2.default.createElement(
+	                        "p",
+	                        null,
+	                        _react2.default.createElement("i", { className: "glyphicon glyphicon-pencil myhand" })
+	                    ),
+	                    _react2.default.createElement(
+	                        "p",
+	                        null,
+	                        _react2.default.createElement("i", { className: "glyphicon glyphicon-trash myhand" })
+	                    )
+	                )
+	            );
+	        }
+	    }]);
+	    return BrandItem;
+	}(_react.Component);
+
+	exports.default = BrandItem;
 
 /***/ }
 /******/ ]);
