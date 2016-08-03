@@ -1,5 +1,6 @@
+import React ,{Component} from 'react';
+import TablePublish from './TablePublish.jsx' ;
 
- import React ,{Component} from 'react';
 
  class EditForm extends Component {
    constructor(props) {
@@ -115,33 +116,7 @@
                     <div className="form-group">
                         <label  className="pure-u-1-8 control-label">发布</label>
                         <div className="pure-u-1-2">
-                            <div className="table_layout"  style={{"width":"260px"}}>
-                                <table>
-                                    <thead>
-                                    <tr>
-                                        <th width="130">发布类型</th>
-                                        <th  width="130">发布对象</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                      <tr>
-                                        <td>
-                                            <select defaultValue ="I" className="common_input" style={{"width": "98%"}}>
-                                                <option value="">选择</option>
-                                                <option value="T">Travel Agency code</option>
-                                                <option value="I">IATA number</option>
-                                                <option value="V">Department Code</option>
-                                            </select>
-                                        </td>
-                                        <td><input type="text" className="common_input" style={{"width":"98%"}}/></td>
-                                      </tr>
-                                    </tbody>
-                                </table>
-                                <div className="table_footer">
-                                    <button type="button" className="btn btn-success btn-sm">增加一行</button>
-                                    <button type="button" className="btn btn-default btn-sm">删除一行</button>
-                                </div>
-                            </div>
+                            <TablePublish/>
                         </div>
                     </div>
 
