@@ -1,7 +1,9 @@
 import React, { Component, PropTypes } from 'react';
 import HeaderNav from '../../components/HeaderNav.jsx' ;
 import QuerySection from './QuerySection.jsx';
-import MainContent from './MainContent.jsx';
+import OperNavBar from './OperNavBar.jsx' ;
+import BrandTitle from './BrandTitle.jsx' ;
+import BrandItem from './BrandItem.jsx' ;
 
 class AppLayout extends Component {
   constructor(props) {
@@ -10,11 +12,30 @@ class AppLayout extends Component {
   render(){
     return (
       <div>
-        <div className="navbar-fixed-top" id = "myheader">
-            <HeaderNav/>
-            <QuerySection/>
-        </div>
-        <MainContent/>
+          <div className="navbar-fixed-top" id = "myheader">
+              <HeaderNav/>
+              <QuerySection/>
+          </div>
+          <div className="container-fluid main_content" id="main_content" >
+              <OperNavBar/>
+              <span className="clearfix"></span>
+              <div id="brand_group_list">
+
+                  <div className="panel panel-default brand_group" >
+                      <div className="panel-heading">
+                        <div className="panel-title">
+                          <BrandTitle/>
+                        </div>
+                      </div>
+                      <div className="panel-body">
+                          <ul>
+                            <BrandItem/>
+                          </ul>
+                      </div>
+                  </div>
+
+              </div>
+          </div>
       </div>
     ) ;
   }
