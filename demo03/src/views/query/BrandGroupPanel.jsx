@@ -7,6 +7,7 @@ class BrandGroupPanel extends Component {
     super(props) ;
   }
   render (){
+    let {id} = this.props.s5 ;
     return (
       <div className="panel panel-default brand_group" >
           <div className="panel-heading">
@@ -23,6 +24,7 @@ class BrandGroupPanel extends Component {
                       s7 = {item}
                       key ={index}
                       index = {index+1}
+                      s5Id = {id}
                     />
                   ) ;
                 })

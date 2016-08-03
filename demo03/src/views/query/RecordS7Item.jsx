@@ -4,6 +4,16 @@ class RecordS7Item extends Component {
   constructor(props) {
     super(props) ;
   }
+  handleEditBrand(){
+    let id = this.props.s7.id ;
+    let s5Id = this.props.s5Id ;
+    console.info('修改的s7 的id : '+ id," s5Id : " +s5Id) ;
+  }
+  handleDeleteBrand(){
+    let id = this.props.s7.id ;
+    let s5Id = this.props.s5Id ;
+    console.info('删除的s7 的id : '+ id," s5Id : " +s5Id) ;
+  }
   render (){
     let {id,name,levelNum,desc} = this.props.s7 ;
     let index  = this.props.index;
@@ -22,8 +32,8 @@ class RecordS7Item extends Component {
           </div>
           <div className="brand_list_item pull-right">
               <p><i className="glyphicon glyphicon-search myhand"></i></p>
-              <p><i className="glyphicon glyphicon-pencil myhand"></i></p>
-              <p><i className="glyphicon glyphicon-trash myhand"></i></p>
+              <p><i className="glyphicon glyphicon-pencil myhand" onClick ={this.handleEditBrand.bind(this)}></i></p>
+              <p><i className="glyphicon glyphicon-trash myhand" onClick = {this.handleDeleteBrand.bind(this)}></i></p>
           </div>
       </li>
     ) ;

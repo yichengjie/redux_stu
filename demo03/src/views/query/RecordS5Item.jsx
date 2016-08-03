@@ -4,6 +4,10 @@ class RecordS5Item extends Component {
   constructor(props) {
     super(props) ;
   }
+  handleNewBrand(){
+     let id = this.props.s5.id ;
+     console.info('新建品牌集 id : ' + id) ;
+  }
   render (){
     let {id,title,seqNum,startCity,endCity,startDate,
       endDate,travelStart,travelEnd,pubObj,stateDesc} = this.props.s5 ;
@@ -18,7 +22,7 @@ class RecordS5Item extends Component {
           </span>
           <span className="right">
               <i className="glyphicon glyphicon-pencil marginR10 myhand"></i>
-              <button type="button" className="btn btn-success btn-sm">新建品牌</button>
+              <button type="button" className="btn btn-success btn-sm" onClick={this.handleNewBrand.bind(this)}>新建品牌</button>
           </span>
           <span className="center">
              <span>序列号：{seqNum}</span>
