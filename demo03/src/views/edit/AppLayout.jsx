@@ -11,7 +11,7 @@ class AppLayout extends Component {
     return (
       <div className="app">
         <div className="navbar-fixed-top">
-            <HeaderNav/>
+            <HeaderNav curNavItem = "2"/>
             <QuerySection/>
         </div>
         <div className="container-fluid main_content" id="main_content" >

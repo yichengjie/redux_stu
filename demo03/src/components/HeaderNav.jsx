@@ -4,6 +4,11 @@ class HeaderNav extends Component {
   constructor(props) {
     super(props) ;
   }
+  static get defaultProps() {
+    return {
+      curNavItem: "1"
+    };
+  }
   render(){
     return (
         <nav className="navbar navbar-inverse">
@@ -19,10 +24,10 @@ class HeaderNav extends Component {
               </div>
               <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-9">
                   <ul className="nav navbar-nav">
-                      <li className="active">
+                      <li  className={this.props.curNavItem==='1' ? "active" : ""}  data-value ="1">
                         <a href="index.html">品牌服务</a>
                       </li>
-                      <li>
+                      <li className={this.props.curNavItem==='2' ? "active" : ""} >
                         <a href="edit.html">品牌组编辑</a>
                       </li>
                   </ul>
