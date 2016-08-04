@@ -173,7 +173,7 @@ import TablePublish from './TablePublish.jsx' ;
                     <div className="form-group">
                         <label  className="pure-u-1-8 control-label">发布</label>
                         <div className="pure-u-1-2">
-                            <TablePublish/>
+                            <TablePublish list = {this.props.listPubObjVo}/>
                         </div>
                     </div>
 

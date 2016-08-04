@@ -19,7 +19,10 @@ class AppLayout extends Component {
         travelStart:"",
         travelEnd:"",
         desc:"",
-        locDefine:""
+        locDefine:"",
+        listPubObjVo:[
+          {type:'',code:''}
+        ]
       }
     } ;
   }
@@ -29,15 +32,22 @@ class AppLayout extends Component {
      var tmp = Object.assign({},this.state.fields, obj) ;
      this.setState({"fields":tmp}) ;
   }
+  handleSubmit(){
+    console.info(JSON.stringify(this.state.fields)) ;
+  }
   render (){
     return (
       <div className="app">
          <div className="navbar-fixed-top">
             <HeaderNav curNavItem = "2"/>
-            <QuerySection/>
+            <QuerySection
+              handleSubmit = {this.handleSubmit.bind(this)}
+            />
          </div>
          <div className="container-fluid main_content" id="main_content" >
-           <EditForm  {... this.state.fields} handleInputChange ={this.handleInputChange.bind(this)} />
+           <EditForm  {... this.state.fields}
+            handleInputChange ={this.handleInputChange.bind(this)}
+            />
          </div>
       </div>
     ) ;

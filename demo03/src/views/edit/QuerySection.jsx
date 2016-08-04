@@ -5,7 +5,7 @@ class QuerySection extends Component {
     super(props) ;
   }
   handleSaveBrandgroup(){
-     console.info('保存品牌集按钮被点击...') ;
+     this.props.handleSubmit() ;
   }
   render(){
     return (
