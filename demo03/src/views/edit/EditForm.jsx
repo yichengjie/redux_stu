@@ -6,6 +6,14 @@ import TablePublish from './TablePublish.jsx' ;
    constructor(props) {
      super(props) ;
    }
+
+   handleInputChange(event){
+     let target = event.target ;
+     let value = target.value ;
+     let name = target.name ;
+     this.props.handleInputChange(name,value) ;
+   }
+
    render (){
      return (
        <form className="form-horizontal">
@@ -20,26 +28,40 @@ import TablePublish from './TablePublish.jsx' ;
                    <div className="form-group">
                         <label className="pure-u-1-8 control-label">序列号</label>
                         <div className="pure-u-1-4">
-                            <input type="text" className="form-control" placeholder="数字"/>
+                            <input type="text" name ="seqNum" className="form-control"
+                              value = {this.props.seqNum}
+                              onChange = {this.handleInputChange.bind(this)}
+                              placeholder="数字"/>
                         </div>
                         <span className="errorInfo_validate">这里是错误提示信息</span>
                     </div>
                     <div className="form-group">
                         <label className="pure-u-1-8 control-label">品牌集名称</label>
                         <div className="pure-u-1-4">
-                            <input type="text"  className="form-control"  placeholder="数字" />
+                            <input type="text"  className="form-control"
+                            name ="title"
+                            value = {this.props.title}
+                            onChange = {this.handleInputChange.bind(this)}
+                            placeholder="数字" />
                         </div>
                     </div>
 
                     <div className="form-group">
                         <label className="pure-u-1-8 control-label">销售日期</label>
                         <div className="pure-u-1-8">
-                            <input type="text"  className="form-control"  placeholder="范围" />
+                            <input type="text"  className="form-control"
+                            name ="startDate"
+                            value = {this.props.startDate}
+                            onChange = {this.handleInputChange.bind(this)}
+                            placeholder="范围" />
                         </div>
                         <label htmlFor="id2" className="glyphicon glyphicon-th iconfont_box"></label>
                         <div className="pure-u-1-8">
-                            <input type="text"  className="form-control"  placeholder="范围" />
-
+                            <input type="text"  className="form-control"
+                            name ="endDate"
+                            value ={this.props.endDate}
+                            onChange = {this.handleInputChange.bind(this)}
+                            placeholder="范围" />
                         </div>
                         <label htmlFor="id2" className="glyphicon glyphicon-th iconfont_box"></label>
                     </div>
@@ -47,7 +69,11 @@ import TablePublish from './TablePublish.jsx' ;
                     <div className="form-group">
                         <label className="pure-u-1-8 control-label">区域1</label>
                         <div className="pure-u-1-8">
-                            <select name="loc1" className="form-control">
+                            <select name="loc1" name ="loc1"
+                              className="form-control"
+                               value ={this.props.loc1}
+                               onChange = {this.handleInputChange.bind(this)}
+                               >
                                 <option value="">选择</option>
                                 <option value="A">A-大区</option>
                                 <option value="C">C-城市</option>
@@ -58,14 +84,21 @@ import TablePublish from './TablePublish.jsx' ;
                             </select>
                         </div>
                         <div className="pure-u-1-8">
-                            <input type="text"  className="form-control"  placeholder="范围" />
+                            <input type="text"  className="form-control"
+                            name ="startCity"
+                            onChange = {this.handleInputChange.bind(this)}
+                            value ={this.props.startCity}
+                            placeholder="范围" />
                         </div>
                     </div>
 
                     <div className="form-group">
                         <label className="pure-u-1-8 control-label">区域2</label>
                         <div className="pure-u-1-8">
-                            <select name="loc2" className="form-control">
+                            <select name="loc2"
+                              className="form-control"
+                              value ={this.props.loc2}
+                              onChange = {this.handleInputChange.bind(this)}>
                                 <option value="">选择</option>
                                 <option value="A">A-大区</option>
                                 <option value="C">C-城市</option>
@@ -76,7 +109,11 @@ import TablePublish from './TablePublish.jsx' ;
                             </select>
                         </div>
                         <div className="pure-u-1-8">
-                            <input type="text"  className="form-control"  placeholder="范围" />
+                            <input type="text"  className="form-control"
+                              name ="endCity"
+                              onChange = {this.handleInputChange.bind(this)}
+                              value ={this.props.endCity}
+                              placeholder="范围" />
                         </div>
                     </div>
 
@@ -84,13 +121,25 @@ import TablePublish from './TablePublish.jsx' ;
                         <label className="pure-u-1-8 control-label">区域限制</label>
                         <div className="pure-u-1-2">
                             <div className="radio-inline">
-                                <input type="radio" id="r1"/><label htmlFor="r1" className="myhand">区域1→区域2</label>
+                                <input type="radio" name ="locDefine" id="r1"
+                                value ="1"
+                                onChange = {this.handleInputChange.bind(this)}
+                                checked = {this.props.locDefine === '1'}/>
+                                <label htmlFor="r1" className="myhand">区域1→区域2</label>
                             </div>
                             <div className="radio-inline">
-                                <input type="radio" id="r2"/><label htmlFor="r2" className="myhand">区域2→区域1</label>
+                                <input type="radio" name ="locDefine" id="r2"
+                                 checked = {this.props.locDefine === '2'}
+                                 onChange = {this.handleInputChange.bind(this)}
+                                 value ="2"/>
+                                <label htmlFor="r2" className="myhand">区域2→区域1</label>
                             </div>
                             <div className="radio-inline">
-                                <input type="radio" id="r3"/><label htmlFor="r3" className="myhand">双向</label>
+                                <input type="radio" name ="locDefine" id="r3"
+                                checked = {this.props.locDefine === '3'}
+                                onChange = {this.handleInputChange.bind(this)}
+                                value="3"/>
+                                <label htmlFor="r3" className="myhand">双向</label>
                             </div>
                         </div>
                     </div>
@@ -106,10 +155,18 @@ import TablePublish from './TablePublish.jsx' ;
                     <div className="form-group">
                         <label className="pure-u-1-8 control-label">旅行日期</label>
                         <div className="pure-u-1-8">
-                            <input type="text"  className="form-control"  placeholder="范围" />
+                            <input type="text"  className="form-control"
+                              name = "travelStart"
+                              value = {this.props.travelStart}
+                              onChange = {this.handleInputChange.bind(this)}
+                             placeholder="范围" />
                         </div>
                         <div className="pure-u-1-8">
-                            <input type="text"  className="form-control"  placeholder="范围" />
+                            <input type="text"  className="form-control"
+                              name ="travelEnd"
+                              value = {this.props.travelEnd}
+                              onChange = {this.handleInputChange.bind(this)}
+                             placeholder="范围" />
                         </div>
                     </div>
 
@@ -123,7 +180,11 @@ import TablePublish from './TablePublish.jsx' ;
                     <div className="form-group">
                         <label className="pure-u-1-8 control-label">描述</label>
                         <div className="pure-u-1-3">
-                            <textarea className="form-control" rows="3"></textarea>
+                            <textarea className="form-control"
+                             name ="desc"
+                             value = {this.props.desc}
+                             onChange = {this.handleInputChange.bind(this)}
+                             rows="3"></textarea>
                         </div>
                     </div>
                 </div>
