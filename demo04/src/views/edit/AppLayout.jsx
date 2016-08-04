@@ -35,17 +35,13 @@ class AppLayout extends Component {
     this.setState(obj) ;
   }
   handleListInputChange({listName,id ,name ,value}){
-
-    console.info('listName : ' +listName , "id : " + id, "name : " + name ,"value : " + value) ;
+    //console.info('listName : ' +listName , "id : " + id, "name : " + name ,"value : " + value) ;
     var listVo = this.state[listName] ;
     for(let item of listVo){
       if(item.id === id){
         item[name] = value ;
       }
     }
-
-    console.info(listVo) ;
-
     var obj =  {} ;
     obj[listName] = listVo ;
     this.setState(obj) ;

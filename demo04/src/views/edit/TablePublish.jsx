@@ -15,6 +15,7 @@
    }
    renderTr(item){
      var id = item.id ;
+     console.info('type : ' + item.type) ;
      return (
        <tr key ={id}>
          <td>
@@ -41,7 +42,7 @@
    render (){
      let list = this.props.list ;
      return (
-       <div className="table_layout"  style={{"width":"260px"}}>
+       <div className="table_layout"  style={{"width":"360px"}}>
            <table>
                <thead>
                <tr>
