@@ -14,13 +14,14 @@
      this.props.handleListInputChange(obj) ;
    }
    renderTr(item){
+     var id = item.id ;
      return (
-       <tr key ={item.getIn(['id'])}>
+       <tr key ={id}>
          <td>
              <select  className="common_input"
                   style={{"width": "98%"}}
-                  onChange = {this.handleInputChange.bind(this,item.getIn(['id']),'type')}
-                  value ={item.getIn(['type'])}>
+                  onChange = {this.handleInputChange.bind(this,id,'type')}
+                  value ={item.type}>
                  <option value="">选择</option>
                  <option value="T">Travel Agency code</option>
                  <option value="I">IATA number</option>
@@ -29,8 +30,8 @@
          </td>
          <td>
             <input type="text" className="common_input"
-              value = {item.getIn(['code'])}
-              onChange = {this.handleInputChange.bind(this,item.getIn(['id']),'code')}
+              value = {item.code}
+              onChange = {this.handleInputChange.bind(this,id,'code')}
               style={{"width":"98%"}}/>
           </td>
        </tr>
@@ -39,7 +40,6 @@
 
    render (){
      let list = this.props.list ;
-     console.info(list) ;
      return (
        <div className="table_layout"  style={{"width":"260px"}}>
            <table>
