@@ -22,16 +22,13 @@ class AppLayout extends Component {
       locDefine:"",
       listPubObjVo:
       [
-        {id:'001',type:'I',code:'testcode'}
+        {id:'001',type:'I',code:'testcode',checked:true}
       ]
     } ;
   }
   handleInputChange(name,value){
     //uniquid('user_');
-    var obj = {} ;
-    obj[name] = value ;
-    //var newState = Object.assign({},this.state.fields,obj) ;
-    //this.setState({"fields":newState});
+    var obj = {[name]:value} ;
     this.setState(obj) ;
   }
   handleListInputChange({listName,id ,name ,value}){
@@ -42,9 +39,40 @@ class AppLayout extends Component {
         item[name] = value ;
       }
     }
-    var obj =  {} ;
-    obj[listName] = listVo ;
+    var obj =  {[listName]:listVo} ;
     this.setState(obj) ;
+  }
+  handleTableAddLine({listName,addObj}){
+    var listVo  = [...this.state[listName],addObj] ;
+    //listVo.push(addObj) ;
+    var obj =  {[listName]:listVo} ;
+    this.setState(obj) ;
+  }
+  handleTableDeleteLine(listName){
+    var listVo  = this.state[listName] ;
+    var obj = null ;
+    var evens = _.filter(listVo, function(item){
+      return item.checked !== true;
+    });
+    if(evens.length==listVo.length){
+      obj = {[listName]:listVo.slice(0,listVo.length-1) } ;
+    }else{
+      obj = {[listName]:evens} ;
+    }
+    this.setState(obj) ;
+  }
+  handleTableTrClick(listName,id){
+      var listVo  = this.state[listName] ;
+      var retList = listVo.map((item) => {
+        if(item.id ==id){
+          item.checked = true ;
+        }else{
+            item.checked = false ;
+        }
+        return item ;
+      }) ;
+      var obj = {[listName]:retList} ;
+      this.setState(obj) ;
   }
   handleSubmit(){
     console.info("准备保存数据到后台 : " + JSON.stringify(this.state)) ;
@@ -64,8 +92,11 @@ class AppLayout extends Component {
          </div>
          <div className="container-fluid main_content" id="main_content" >
            <EditForm  {...this.state}
-            handleInputChange ={this.handleInputChange.bind(this)}
-            handleListInputChange={this.handleListInputChange.bind(this)}
+              handleInputChange ={this.handleInputChange.bind(this)}
+              handleListInputChange={this.handleListInputChange.bind(this)}
+              handleTableAddLine = {this.handleTableAddLine.bind(this)}
+              handleTableDeleteLine = {this.handleTableDeleteLine.bind(this)}
+              handleTableTrClick = {this.handleTableTrClick.bind(this)}
             />
          </div>
       </div>

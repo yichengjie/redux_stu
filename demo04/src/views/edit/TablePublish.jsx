@@ -1,6 +1,7 @@
 
  import React ,{Component} from 'react';
  import TableFooter from '../../components/TableFooter.jsx' ;
+ import uniquid from 'uniquid' ;
 
  class TablePublish extends Component {
    constructor(props) {
@@ -10,14 +11,30 @@
      let target = event.target ;
      let value = target.value ;
      let listName = "listPubObjVo" ;
-     var obj = {listName,id ,name ,value} ;
+     let obj = {listName,id ,name ,value} ;
      this.props.handleListInputChange(obj) ;
+   }
+   addTableLine(){
+     let listName = "listPubObjVo" ;
+     let id = uniquid('pubObj_');
+     let type = "" ;
+     let code = "" ;
+     let addObj = {id,type,code} ;
+     let param = {listName,addObj} ;
+     this.props.handleTableAddLine(param) ;
+   }
+   deleteTableLine(){
+     let listName = "listPubObjVo" ;
+     this.props.handleTableDeleteLine(listName) ;
+   }
+   handleClickTr(id){
+     let listName = "listPubObjVo" ;
+     this.props.handleTableTrClick(listName,id) ;
    }
    renderTr(item){
      var id = item.id ;
-     console.info('type : ' + item.type) ;
      return (
-       <tr key ={id}>
+       <tr key ={id} onClick = {this.handleClickTr.bind(this,id)} className = {item.checked ? "selected_td" : ""}>
          <td>
              <select  className="common_input"
                   style={{"width": "98%"}}
@@ -58,7 +75,10 @@
                 }
                </tbody>
            </table>
-           <TableFooter/>
+           <TableFooter
+              addTableLine = {this.addTableLine.bind(this)}
+              deleteTableLine = {this.deleteTableLine.bind(this)}
+            />
        </div>
      );
    }

@@ -177,6 +177,9 @@ import TablePublish from './TablePublish.jsx' ;
                             <TablePublish
                               list = {this.props.listPubObjVo}
                               handleListInputChange = {this.props.handleListInputChange.bind(this)}
+                              handleTableAddLine = {this.props.handleTableAddLine.bind(this)}
+                              handleTableDeleteLine = {this.props.handleTableDeleteLine.bind(this)}
+                              handleTableTrClick = {this.props.handleTableTrClick.bind(this)}
                             />
                         </div>
                     </div>
