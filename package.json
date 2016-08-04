@@ -47,6 +47,7 @@
     "react-redux": "^4.4.5",
     "redux": "^3.5.2",
     "redux-form": "^5.3.2",
+    "underscore": "^1.8.3",
     "uniquid": "^1.1.4"
   }
 }
