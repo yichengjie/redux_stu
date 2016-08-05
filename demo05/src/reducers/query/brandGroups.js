@@ -1,4 +1,5 @@
-import {QUERY_BRANDGROUPS,DELETE_BRAND} from '../../actions/query/actions.js' ;
+import {QUERY_BRANDGROUPS,DELETE_BRAND,DELETE_BRANDGROUP} from '../../actions/query/actions.js' ;
+import _ from 'underscore' ;
 export default function brandGroups(state = [], action) {
   switch (action.type) {
     case QUERY_BRANDGROUPS:
@@ -16,6 +17,14 @@ export default function brandGroups(state = [], action) {
         }
         return item ;
       });
+    case DELETE_BRANDGROUP :
+      let idArr = action.param ;
+      return state.filter((item) => {
+        if(_.contains(idArr,item.id)){
+          return false;
+        }
+        return true;
+      }) ;
     default:
       return state;
   }

@@ -4,40 +4,23 @@ import QuerySection from './QuerySection.jsx';
 import OperNavBar from './OperNavBar.jsx' ;
 import BrandGroupPanel from './BrandGroupPanel.jsx' ;
 import _ from 'underscore';
-import $ from 'jquery' ;
-
-
-
 class AppLayout extends Component {
   constructor(props) {
     super(props) ;
-    this.state = {
-      checkedS5List:[]
-    };
   }
   handleQueryBrand(param){
     this.props.queryBrandGroups(param) ;
   }
-  handleSelectS5(id,checkFlag){
-    //console.info("id : " +id,"checkFlag : "+ checkFlag) ;
-    if(checkFlag){
-      this.setState({checkedS5List:[...this.state.checkedS5List,id]}) ;
-    }else{
-      this.setState({checkedS5List:_.without(this.state.checkedS5List,id)}) ;
-    }
+  handleSelectS5(groupId,selectFlag){
+    console.info(groupId,selectFlag) ;
+    this.props.addSelectBrandGroupId({groupId,selectFlag}) ;
   }
   handleDeleteBrand (groupId,id){
     this.props.deleteBrand({groupId,id}) ;
   }
   handleDeleteBrandGroup(){
-    console.info('delete brand group btn is click ...') ;
-    let s5IdArr = this.state .checkedS5List;
-    let newList =  _.filter(this.state.list,function(item){
-      if(!_.contains(s5IdArr,item.id)){
-        return true ;
-      }
-    }) ;
-    this.setState({list:newList,checkedS5List:[]}) ;
+    let s5IdArr = this.props.brandGroupIds ;
+    this.props.deleteBrandGroup(s5IdArr);
   }
   render(){
     return (
@@ -52,7 +35,8 @@ class AppLayout extends Component {
               <div id="brand_group_list">
                   {
                     this.props.brandGroups.map((item,index) => {
-                      let checkFlag = _.contains(this.state.checkedS5List,item.id) ;
+                      //let checkFlag = _.contains(this.state.checkedS5List,item.id) ;
+                      let checkFlag =  _.contains(this.props.brandGroupIds,item.id) ;
                       return  (
                         <BrandGroupPanel
                           showS7Flag = {index===0}
