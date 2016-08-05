@@ -12,7 +12,8 @@ class RecordS7Item extends Component {
   handleDeleteBrand(){
     let id = this.props.s7.id ;
     let s5Id = this.props.s5Id ;
-    console.info('删除的s7 的id : '+ id," s5Id : " +s5Id) ;
+    //console.info('删除的s7 的id : '+ id," s5Id : " +s5Id) ;
+    this.props.handleDeleteBrand(s5Id,id) ;
   }
   render (){
     let {id,name,levelNum,desc} = this.props.s7 ;

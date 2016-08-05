@@ -35,6 +35,7 @@ class BrandGroupPanel extends Component {
                       key ={index}
                       index = {index+1}
                       s5Id = {id}
+                      handleDeleteBrand = {this.props.handleDeleteBrand}
                     />
                   ) ;
                 })
