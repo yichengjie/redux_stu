@@ -26,23 +26,8 @@ class AppLayout extends Component {
       this.setState({checkedS5List:_.without(this.state.checkedS5List,id)}) ;
     }
   }
-  handleDeleteBrand (s5Id,id){
-    console.info("s5Id : " + s5Id,"id : "+ id) ;
-    //1。找到s5
-    //2.删除s5中的s7
-    var tmpList = $.extend(true,{},this.state).list  ;
-    for(let item of tmpList){
-      if(item.id == s5Id){
-        let list2 = item.list ;
-        let list2_temp = _.filter(list2,function(i){
-          if(i.id!=id ){
-            return true ;
-          }
-        }) ;
-        item.list = list2_temp ;
-      }
-    }
-    this.setState({"list":tmpList}) ;
+  handleDeleteBrand (groupId,id){
+    this.props.deleteBrand({groupId,id}) ;
   }
   handleDeleteBrandGroup(){
     console.info('delete brand group btn is click ...') ;
