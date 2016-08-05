@@ -7,6 +7,7 @@ export function queryBrandGroups(param) {
   let list =  new API().queryBrandGroup(param) ;
   return { type: QUERY_BRANDGROUPS,brandGroups:list} ;
 }
-export function deleteBrand(){
-
+export function deleteBrand(param){
+  console.info('deleteBrand groupId is ' + param.groupId +" , id is : " + param.id) ;
+  return {type:DELETE_BRAND,param} ;
 }
