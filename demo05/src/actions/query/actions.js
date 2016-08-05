@@ -1,7 +1,12 @@
 import API from '../../api/api.js' ;
 export const QUERY_BRANDGROUPS = 'QUERY_BRANDGROUPS' ;
+export const DELETE_BRAND = 'DELETE_BRAND' ;
 
-export function queryBrandGroups() {
-  let list =  new API().queryBrandGroup() ;
+export function queryBrandGroups(param) {
+  console.info('query brandgroup param is ',JSON.stringify(param)) ;
+  let list =  new API().queryBrandGroup(param) ;
   return { type: QUERY_BRANDGROUPS,brandGroups:list} ;
+}
+export function deleteBrand(){
+
 }

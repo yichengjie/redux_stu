@@ -11,8 +11,8 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    queryBrandGroups: () => {
-      dispatch(queryBrandGroups());
+    queryBrandGroups: (param) => {
+      dispatch(queryBrandGroups(param));
     }
   };
 };

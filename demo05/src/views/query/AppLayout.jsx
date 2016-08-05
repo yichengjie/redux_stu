@@ -12,15 +12,11 @@ class AppLayout extends Component {
   constructor(props) {
     super(props) ;
     this.state = {
-      list:[],
       checkedS5List:[]
     };
   }
   handleQueryBrand(param){
-    this.props.queryBrandGroups() ;
-    //setTimeout(function(){
-    //this.setState({list:list}) ;
-    //}.bind(this),300) ;
+    this.props.queryBrandGroups(param) ;
   }
   handleSelectS5(id,checkFlag){
     //console.info("id : " +id,"checkFlag : "+ checkFlag) ;
