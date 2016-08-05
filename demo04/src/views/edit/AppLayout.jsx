@@ -19,7 +19,7 @@ class AppLayout extends Component {
       travelStart:"",
       travelEnd:"",
       desc:"",
-      locDefine:"",
+      locDefine:"1",
       listPubObjVo:
       [
         {id:'001',type:'I',code:'testcode',checked:true}
@@ -27,7 +27,6 @@ class AppLayout extends Component {
     } ;
   }
   handleInputChange(name,value){
-    //uniquid('user_');
     var obj = {[name]:value} ;
     this.setState(obj) ;
   }
