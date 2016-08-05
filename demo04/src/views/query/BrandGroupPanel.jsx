@@ -5,6 +5,12 @@ import RecordS7Item from './RecordS7Item.jsx' ;
 class BrandGroupPanel extends Component {
   constructor(props) {
     super(props) ;
+    this.state ={
+      showS7Flag:true
+    } ;
+  }
+  handleChangeShowHide(){
+    this.setState({showS7Flag:!this.state.showS7Flag}) ;
   }
   render (){
     let {id} = this.props.s5 ;
@@ -12,10 +18,14 @@ class BrandGroupPanel extends Component {
       <div className="panel panel-default brand_group" >
           <div className="panel-heading">
             <div className="panel-title">
-              <RecordS5Item s5 = {this.props.s5}/>
+              <RecordS5Item s5 = {this.props.s5}
+                checkFlag = {this.props.checkFlag}
+                handleSelectS5 = {this.props.handleSelectS5}
+                handleChangeShowHide ={this.handleChangeShowHide.bind(this)}
+              />
             </div>
           </div>
-          <div className="panel-body">
+          <div className= {this.state.showS7Flag ?"panel-body":"panel-body hidden"} >
               <ul>
               {
                 this.props.s5.list.map((item,index) => {

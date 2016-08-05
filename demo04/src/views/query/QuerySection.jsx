@@ -31,11 +31,7 @@ class QuerySection extends Component {
     if(checked){//选中
       newList = [...list,value] ;
     }else{//不选中
-      newList = _.filter(list,(item)=>{
-        if(item!=value){
-          return true ;
-        }
-      }) ;
+      newList = _.without(list,value) ;
     }
     this.setState({[name]:newList}) ;
   }

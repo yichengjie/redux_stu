@@ -3,6 +3,7 @@ import HeaderNav from '../../components/HeaderNav.jsx' ;
 import QuerySection from './QuerySection.jsx';
 import OperNavBar from './OperNavBar.jsx' ;
 import BrandGroupPanel from './BrandGroupPanel.jsx' ;
+import _ from "underscore";
 
 let listData = [{
     id:'001',title:'asgui_ca test',seqNum:'8776559',startCity:'1',endCity:'2',
@@ -31,13 +32,24 @@ let listData = [{
 class AppLayout extends Component {
   constructor(props) {
     super(props) ;
-    this.state = {list:[] };
+    this.state = {
+      list:[],
+      checkedS5List:[]
+    };
   }
   handleQueryBrand(param){
     console.info(JSON.stringify(param)) ;
-    setTimeout(function(){
-      this.setState({list:listData}) ;
-    }.bind(this),300) ;
+    //setTimeout(function(){
+    this.setState({list:listData}) ;
+    //}.bind(this),300) ;
+  }
+  handleSelectS5(id,checkFlag){
+    //console.info("id : " +id,"checkFlag : "+ checkFlag) ;
+    if(checkFlag){
+      this.setState({checkedS5List:[...this.state.checkedS5List,id]}) ;
+    }else{
+      this.setState({checkedS5List:_.without(this.state.checkedS5List,id)}) ;
+    }
   }
   render(){
     return (
@@ -52,10 +64,13 @@ class AppLayout extends Component {
               <div id="brand_group_list">
                   {
                     this.state.list.map((item) => {
+                      let checkFlag = _.contains(this.state.checkedS5List,item.id) ;
                       return  (
                         <BrandGroupPanel
                           s5 = {item}
                           key ={item.id}
+                          handleSelectS5 = {this.handleSelectS5.bind(this)}
+                          checkFlag = {checkFlag}
                         />
                       ) ;
                     })

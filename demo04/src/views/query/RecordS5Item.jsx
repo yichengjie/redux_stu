@@ -8,13 +8,21 @@ class RecordS5Item extends Component {
      let id = this.props.s5.id ;
      console.info('新建品牌集 id : ' + id) ;
   }
+  handleSelectS5(event){
+     event.stopPropagation() ;
+     let id = this.props.s5.id ;
+     this.props.handleSelectS5(id,event.target.checked) ;
+  }
   render (){
     let {id,title,seqNum,startCity,endCity,startDate,
       endDate,travelStart,travelEnd,pubObj,stateDesc} = this.props.s5 ;
     return (
       <div className="brand_title">
-          <span className="left text-info">
-              <input name ="checkAll" type="checkbox"/>
+          <span className="left text-info" onClick ={this.props.handleChangeShowHide}>
+              <input name ="checkAll" type="checkbox"
+                onClick = {this.handleSelectS5.bind(this)}
+                checked = {this.props.checkFlag}
+                value = {id} />
               <i className="glyphicon glyphicon-upload marginL10" data-name="showHideBody"></i>
                 {title}
               <i className="glyphicon glyphicon-info-sign pull-right descrImg" data-toggle="tooltip"
@@ -22,7 +30,8 @@ class RecordS5Item extends Component {
           </span>
           <span className="right">
               <i className="glyphicon glyphicon-pencil marginR10 myhand"></i>
-              <button type="button" className="btn btn-success btn-sm" onClick={this.handleNewBrand.bind(this)}>新建品牌</button>
+              <button type="button" className="btn btn-success btn-sm"
+                onClick={this.handleNewBrand.bind(this)}>新建品牌</button>
           </span>
           <span className="center">
              <span>序列号：{seqNum}</span>
