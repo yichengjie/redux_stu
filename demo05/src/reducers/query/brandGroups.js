@@ -1,14 +1,8 @@
+import {QUERY_BRANDGROUPS} from '../../actions/query/actions.js' ;
 export default function brandGroups(state = [], action) {
   switch (action.type) {
-    case 'ADD_BRANDGROUP':
-      return [
-        ...state,
-        {
-          ...action.obj
-        }
-      ];
-    case 'GETALL_BRANDGROUP':
-      return state;
+    case QUERY_BRANDGROUPS:
+      return action.brandGroups;
     default:
       return state;
   }

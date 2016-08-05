@@ -6,52 +6,7 @@ import BrandGroupPanel from './BrandGroupPanel.jsx' ;
 import _ from 'underscore';
 import $ from 'jquery' ;
 
-let listData = [
-  {
-    id:'001',title:'asgui_ca test',seqNum:'8776559',startCity:'1',endCity:'2',
-    startDate:'2016-06-30',endDate:'9999-12-31',travelStart:'2016-06-30',
-    travelEnd:'2016-06-30',pubObj:'001',stateDesc:'未发布',list:[{
-        id:"001",
-        name:'xx001',
-        levelNum:'10011',
-        desc:'测试一下啊这里的描述信息'
-      },
-      {
-        id:"002",
-        name:'xx002',
-        levelNum:'10013',
-        desc:'测试一下啊这里的描述信息'
-      },{
-        id:"003",
-        name:'xx003',
-        levelNum:'10013',
-        desc:'测试一下啊这里的描述信息'
-      }
-    ]
-  },
-  {
-    id:'002',title:'asgui_ca test',seqNum:'8776559',startCity:'1',endCity:'2',
-    startDate:'2016-06-30',endDate:'9999-12-31',travelStart:'2016-06-30',
-    travelEnd:'2016-06-30',pubObj:'001',stateDesc:'未发布',list:[{
-        id:"003",
-        name:'xx003',
-        levelNum:'10011',
-        desc:'测试一下啊这里的描述信息'
-      },
-      {
-        id:"004",
-        name:'xx004',
-        levelNum:'10013',
-        desc:'测试一下啊这里的描述信息'
-      },{
-        id:"005",
-        name:'xx005',
-        levelNum:'10013',
-        desc:'测试一下啊这里的描述信息'
-      }
-    ]
-  }
-];
+
 
 class AppLayout extends Component {
   constructor(props) {
@@ -62,8 +17,9 @@ class AppLayout extends Component {
     };
   }
   handleQueryBrand(param){
+    this.props.queryBrandGroups() ;
     //setTimeout(function(){
-    this.setState({list:listData}) ;
+    //this.setState({list:list}) ;
     //}.bind(this),300) ;
   }
   handleSelectS5(id,checkFlag){
@@ -114,7 +70,7 @@ class AppLayout extends Component {
               <span className="clearfix"></span>
               <div id="brand_group_list">
                   {
-                    this.state.list.map((item,index) => {
+                    this.props.brandGroups.map((item,index) => {
                       let checkFlag = _.contains(this.state.checkedS5List,item.id) ;
                       return  (
                         <BrandGroupPanel
