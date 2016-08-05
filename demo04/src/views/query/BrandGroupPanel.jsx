@@ -6,9 +6,21 @@ class BrandGroupPanel extends Component {
   constructor(props) {
     super(props) ;
     this.state ={
-      showS7Flag:true
+      showS7Flag:false
     } ;
   }
+  static defaultProps () {
+     return{
+       showS7Flag: false
+     };
+  }
+
+  componentDidMount(){
+    if(this.props.showS7Flag){
+       this.setState({showS7Flag:true}) ;
+    }
+  }
+
   handleChangeShowHide(){
     this.setState({showS7Flag:!this.state.showS7Flag}) ;
   }

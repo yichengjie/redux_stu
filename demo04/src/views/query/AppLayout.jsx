@@ -6,7 +6,8 @@ import BrandGroupPanel from './BrandGroupPanel.jsx' ;
 import _ from 'underscore';
 import $ from 'jquery' ;
 
-let listData = [{
+let listData = [
+  {
     id:'001',title:'asgui_ca test',seqNum:'8776559',startCity:'1',endCity:'2',
     startDate:'2016-06-30',endDate:'9999-12-31',travelStart:'2016-06-30',
     travelEnd:'2016-06-30',pubObj:'001',stateDesc:'未发布',list:[{
@@ -27,6 +28,28 @@ let listData = [{
         desc:'测试一下啊这里的描述信息'
       }
     ]
+  },
+  {
+    id:'002',title:'asgui_ca test',seqNum:'8776559',startCity:'1',endCity:'2',
+    startDate:'2016-06-30',endDate:'9999-12-31',travelStart:'2016-06-30',
+    travelEnd:'2016-06-30',pubObj:'001',stateDesc:'未发布',list:[{
+        id:"003",
+        name:'xx003',
+        levelNum:'10011',
+        desc:'测试一下啊这里的描述信息'
+      },
+      {
+        id:"004",
+        name:'xx004',
+        levelNum:'10013',
+        desc:'测试一下啊这里的描述信息'
+      },{
+        id:"005",
+        name:'xx005',
+        levelNum:'10013',
+        desc:'测试一下啊这里的描述信息'
+      }
+    ]
   }
 ];
 
@@ -39,7 +62,6 @@ class AppLayout extends Component {
     };
   }
   handleQueryBrand(param){
-    console.info(JSON.stringify(param)) ;
     //setTimeout(function(){
     this.setState({list:listData}) ;
     //}.bind(this),300) ;
@@ -70,6 +92,16 @@ class AppLayout extends Component {
     }
     this.setState({"list":tmpList}) ;
   }
+  handleDeleteBrandGroup(){
+    console.info('delete brand group btn is click ...') ;
+    let s5IdArr = this.state .checkedS5List;
+    let newList =  _.filter(this.state.list,function(item){
+      if(!_.contains(s5IdArr,item.id)){
+        return true ;
+      }
+    }) ;
+    this.setState({list:newList,checkedS5List:[]}) ;
+  }
   render(){
     return (
       <div>
@@ -78,14 +110,15 @@ class AppLayout extends Component {
               <QuerySection handleQueryBrand = {this.handleQueryBrand.bind(this)}/>
           </div>
           <div className="container-fluid main_content" id="main_content" >
-              <OperNavBar/>
+              <OperNavBar handleDeleteBrandGroup = {this.handleDeleteBrandGroup.bind(this)}/>
               <span className="clearfix"></span>
               <div id="brand_group_list">
                   {
-                    this.state.list.map((item) => {
+                    this.state.list.map((item,index) => {
                       let checkFlag = _.contains(this.state.checkedS5List,item.id) ;
                       return  (
                         <BrandGroupPanel
+                          showS7Flag = {index===0}
                           s5 = {item}
                           key ={item.id}
                           handleSelectS5 = {this.handleSelectS5.bind(this)}
