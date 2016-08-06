@@ -4,6 +4,7 @@ export const DELETE_BRAND = 'DELETE_BRAND' ;
 export const DELETE_BRANDGROUP = 'DELETE_BRANDGROUP' ;
 export const ADD_SELECTBRANDGROUPID = 'ADD_SELECTBRANDGROUPID' ;//selectBrandGroup
 export const CLEAR_SELECTBRANDGROUPID = 'CLEAR_SELECTBRANDGROUPID' ;
+export const ADD_BRANDGROUP = "ADD_BRANDGROUP" ;
 
 export function queryBrandGroups(param) {
   //console.info('query brandgroup param is ',JSON.stringify(param)) ;
@@ -16,7 +17,10 @@ export function deleteBrand(param){
 export function deleteBrandGroup(param){
   return {type:DELETE_BRANDGROUP,param} ;
 }
-
+//新加品牌集
+export function addBrandGroup(param){
+  return {type:ADD_BRANDGROUP,param} ;
+}
 export function addSelectBrandGroupId(param){
   return {type:ADD_SELECTBRANDGROUPID,param} ;
 }

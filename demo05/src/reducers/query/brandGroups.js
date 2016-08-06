@@ -1,4 +1,4 @@
-import {QUERY_BRANDGROUPS,DELETE_BRAND,DELETE_BRANDGROUP} from '../../actions/query/actions.js' ;
+import {QUERY_BRANDGROUPS,DELETE_BRAND,DELETE_BRANDGROUP,ADD_BRANDGROUP} from '../../actions/query/actions.js' ;
 import _ from 'underscore' ;
 export default function brandGroups(state = [], action) {
   switch (action.type) {
@@ -25,6 +25,8 @@ export default function brandGroups(state = [], action) {
         }
         return true;
       }) ;
+    case ADD_BRANDGROUP:
+      return [...state,action.param];
     default:
       return state;
   }

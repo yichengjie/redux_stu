@@ -4,6 +4,7 @@ import QuerySection from './QuerySection.jsx';
 import OperNavBar from './OperNavBar.jsx' ;
 import BrandGroupPanel from './BrandGroupPanel.jsx' ;
 import _ from 'underscore';
+import uniquid from 'uniquid' ;
 class AppLayout extends Component {
   constructor(props) {
     super(props) ;
@@ -22,6 +23,23 @@ class AppLayout extends Component {
     let s5IdArr = this.props.brandGroupIds ;
     this.props.deleteBrandGroup(s5IdArr);
   }
+  handleAddBrandGroup(){
+    let id = uniquid('group_');
+    let title = 'asgui_ca test' ;
+    let seqNum ='8776559' ;
+    let startCity ='1' ;
+    let endCity= '2' ;
+    let startDate = '2016-06-30';
+    let endDate = '9999-12-31' ;
+    let travelStart = '2016-06-30' ;
+    let travelEnd = '2016-06-30' ;
+    let pubObj = '001' ;
+    let stateDesc ='未发布' ;
+    let list = [] ;
+    var param = {id,title,seqNum,startCity,endCity,
+        startDate,endDate,travelStart,travelEnd,pubObj,stateDesc,list} ;
+    this.props.addBrandGroup(param) ;
+  }
   render(){
     return (
       <div>
@@ -30,7 +48,10 @@ class AppLayout extends Component {
               <QuerySection handleQueryBrand = {this.handleQueryBrand.bind(this)}/>
           </div>
           <div className="container-fluid main_content" id="main_content" >
-              <OperNavBar handleDeleteBrandGroup = {this.handleDeleteBrandGroup.bind(this)}/>
+              <OperNavBar
+                handleDeleteBrandGroup = {this.handleDeleteBrandGroup.bind(this)}
+                handleAddBrandGroup = {this.handleAddBrandGroup.bind(this)}
+              />
               <span className="clearfix"></span>
               <div id="brand_group_list">
                   {

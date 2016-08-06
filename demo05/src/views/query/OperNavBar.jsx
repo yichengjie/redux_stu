@@ -7,7 +7,9 @@ class OperNavBar extends Component {
   render(){
     return (
       <div className="pull-right clearfix" style={{"marginBottom": "8px"}}>
-          <button type="button" className="btn btn-sm btn-success" >新建品牌集</button>
+          <button type="button"
+            onClick = {this.props.handleAddBrandGroup}
+            className="btn btn-sm btn-success" >新建品牌集</button>
           <button className="btn btn-info btn-sm">发布</button>
           <button className="btn btn-warning btn-sm">截止</button>
           <button
