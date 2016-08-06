@@ -3,11 +3,10 @@ import _ from 'underscore' ;
 export default function brandGroups(state = [], action) {
   switch (action.type) {
     case ADD_SELECTBRANDGROUPID:
-      let {groupId,selectFlag} = action.param ;
-      if(selectFlag){
-        return [...state,groupId] ;
+      if(action.param.selectFlag){
+        return [...state,action.param.groupId] ;
       }else{
-        return _.without(state,groupId) ;
+        return _.without(state,action.param.groupId) ;
       }
     case CLEAR_SELECTBRANDGROUPID:
       return [] ;

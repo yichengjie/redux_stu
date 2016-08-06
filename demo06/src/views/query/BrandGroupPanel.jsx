@@ -1,5 +1,5 @@
 import React ,{Component} from 'react';
-import RecordS5Item from './RecordS5Item.jsx' ;
+import RecordS5Item from '../../containers/query/RecordS5Item.js' ;
 import RecordS7Item from './RecordS7Item.jsx' ;
 
 class BrandGroupPanel extends Component {
@@ -28,11 +28,11 @@ class BrandGroupPanel extends Component {
       <div className="panel panel-default brand_group" >
           <div className="panel-heading">
             <div className="panel-title">
-              <RecordS5Item s5 = {this.props.s5}
+              <RecordS5Item
+                s5 = {this.props.s5}
                 checkFlag = {this.props.checkFlag}
                 handleSelectS5 = {this.props.handleSelectS5}
                 handleChangeShowHide ={this.handleChangeShowHide.bind(this)}
-                handleAddBrand = {this.props.handleAddBrand}
               />
             </div>
           </div>

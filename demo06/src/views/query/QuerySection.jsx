@@ -16,7 +16,7 @@ class QuerySection extends Component {
   }
   handleQueryBrand(){
     let params = {...this.state} ;
-    this.props.handleQueryBrand(params) ;
+    this.props.queryBrandGroups(params) ;
   }
   handleInputChange(name,event){
     let value = event.target.value ;

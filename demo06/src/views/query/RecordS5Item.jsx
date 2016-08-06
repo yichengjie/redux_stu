@@ -1,17 +1,25 @@
 import React ,{Component} from 'react';
+import uniquid from 'uniquid' ;
+import jsonData  from '../../api/jsonData.js' ;
+import _ from 'lodash';
 
 class RecordS5Item extends Component {
   constructor(props) {
     super(props) ;
   }
   handleNewBrand(){
-     let id = this.props.s5.id ;
-     this.props.handleAddBrand(id) ;
+     let groupId = this.props.s5.id ;
+     let id = uniquid('brand_') ;
+     let brandObj = _.cloneDeep(jsonData.brandModel);
+     _.assign(brandObj,{id}) ;
+     let param = {groupId,brandObj} ;
+     this.props.addBrand(param) ;
   }
   handleSelectS5(event){
      event.stopPropagation() ;
-     let id = this.props.s5.id ;
-     this.props.handleSelectS5(id,event.target.checked) ;
+     let groupId = this.props.s5.id ;
+     let selectFlag = event.target.checked ;
+     this.props.addSelectBrandGroupId({groupId,selectFlag}) ;
   }
   render (){
     let {id,title,seqNum,startCity,endCity,startDate,

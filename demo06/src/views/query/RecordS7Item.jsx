@@ -1,5 +1,6 @@
 import React ,{Component} from 'react';
 
+
 class RecordS7Item extends Component {
   constructor(props) {
     super(props) ;
