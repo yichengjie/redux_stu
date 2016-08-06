@@ -14,13 +14,11 @@ class BrandGroupPanel extends Component {
        showS7Flag: false
      };
   }
-
   componentDidMount(){
     if(this.props.showS7Flag){
        this.setState({showS7Flag:true}) ;
     }
   }
-
   handleChangeShowHide(){
     this.setState({showS7Flag:!this.state.showS7Flag}) ;
   }

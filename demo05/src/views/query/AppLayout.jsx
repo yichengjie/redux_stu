@@ -43,7 +43,9 @@ class AppLayout extends Component {
       <div>
           <div className="navbar-fixed-top" id = "myheader">
               <HeaderNav/>
-              <QuerySection handleQueryBrand = {this.handleQueryBrand.bind(this)}/>
+              <QuerySection
+                handleQueryBrand = {this.handleQueryBrand.bind(this)}
+              />
           </div>
           <div className="container-fluid main_content" id="main_content" >
               <OperNavBar

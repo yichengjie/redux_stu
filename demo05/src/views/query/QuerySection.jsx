@@ -22,7 +22,6 @@ class QuerySection extends Component {
     let value = event.target.value ;
     this.setState({[name]:value}) ;
   }
-
   handleCheckBoxChange(name,event){
     let value = event.target.value ;
     let checked = event.target.checked ;
@@ -35,7 +34,6 @@ class QuerySection extends Component {
     }
     this.setState({[name]:newList}) ;
   }
-
   render(){
     return (
         <div className ="query_section">
