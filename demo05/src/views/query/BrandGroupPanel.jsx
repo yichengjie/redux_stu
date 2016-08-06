@@ -34,6 +34,7 @@ class BrandGroupPanel extends Component {
                 checkFlag = {this.props.checkFlag}
                 handleSelectS5 = {this.props.handleSelectS5}
                 handleChangeShowHide ={this.handleChangeShowHide.bind(this)}
+                handleAddBrand = {this.props.handleAddBrand}
               />
             </div>
           </div>

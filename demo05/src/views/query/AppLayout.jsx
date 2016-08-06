@@ -31,6 +31,13 @@ class AppLayout extends Component {
     _.assign(param,{id}) ;
     this.props.addBrandGroup(param) ;
   }
+  handleAddBrand(groupId){
+    let id = uniquid('brand_') ;
+    let brandObj = _.cloneDeep(jsonData.brandModel);
+    _.assign(brandObj,{id}) ;
+    let param = {groupId,brandObj} ;
+    this.props.addBrand(param) ;
+  }
   render(){
     return (
       <div>
@@ -56,6 +63,7 @@ class AppLayout extends Component {
                           key ={item.id}
                           handleSelectS5 = {this.handleSelectS5.bind(this)}
                           handleDeleteBrand = {this.handleDeleteBrand.bind(this)}
+                          handleAddBrand = {this.handleAddBrand.bind(this)}
                           checkFlag = {checkFlag}
                         />
                       ) ;

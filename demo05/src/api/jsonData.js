@@ -49,5 +49,11 @@ export default  {
     id:'',title:'asgui_ca test',seqNum:'8776559',startCity:'1',endCity:'2',
     startDate:'2016-06-30',endDate:'9999-12-31',travelStart:'2016-06-30',
     travelEnd:'2016-06-30',pubObj:'001',stateDesc:'未发布',list:[]
+  },
+  brandModel:{
+    id:"",
+    name:'xx005',
+    levelNum:'10013',
+    desc:'测试一下啊这里的描述信息'
   }
 } ;

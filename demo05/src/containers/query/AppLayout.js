@@ -1,7 +1,8 @@
 import AppLayout from '../../views/query/AppLayout.jsx' ;
 import { connect } from 'react-redux';
 import { queryBrandGroups,deleteBrand ,deleteBrandGroup,
-  addSelectBrandGroupId,clearSelectBrandGroupId,addBrandGroup} from '../../actions/query/actions.js';
+  addSelectBrandGroupId,clearSelectBrandGroupId,
+  addBrandGroup,addBrand} from '../../actions/query/actions.js';
 
 const mapStateToProps = (state, ownProps) => {
   return {
@@ -29,6 +30,9 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     },
     addBrandGroup:(param) => {
       dispatch(addBrandGroup(param)) ;
+    },
+    addBrand:(param) => {
+      dispatch(addBrand(param)) ;
     }
   };
 };
