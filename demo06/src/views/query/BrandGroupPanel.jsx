@@ -1,6 +1,6 @@
 import React ,{Component} from 'react';
 import RecordS5Item from '../../containers/query/RecordS5Item.js' ;
-import RecordS7Item from './RecordS7Item.jsx' ;
+import RecordS7Item from '../../containers/query/RecordS7Item.js' ;
 
 class BrandGroupPanel extends Component {
   constructor(props) {
@@ -46,7 +46,6 @@ class BrandGroupPanel extends Component {
                       key ={item.id}
                       index = {index+1}
                       s5Id = {id}
-                      handleDeleteBrand = {this.props.handleDeleteBrand}
                     />
                   ) ;
                 })

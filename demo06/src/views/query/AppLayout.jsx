@@ -5,13 +5,9 @@ import OperNavBar from '../../containers/query/OperNavBar.js' ;
 import BrandGroupPanel from './BrandGroupPanel.jsx' ;
 var _ = require('lodash');
 
-
 class AppLayout extends Component {
   constructor(props) {
     super(props) ;
-  }
-  handleDeleteBrand (groupId,id){
-    this.props.deleteBrand({groupId,id}) ;
   }
   render(){
     return (
@@ -33,7 +29,6 @@ class AppLayout extends Component {
                           showS7Flag = {index===0}
                           s5 = {item}
                           key ={item.id}
-                          handleDeleteBrand = {this.handleDeleteBrand.bind(this)}
                           checkFlag = {checkFlag}
                         />
                       ) ;
