@@ -3,8 +3,10 @@ import HeaderNav from '../../components/HeaderNav.jsx' ;
 import QuerySection from './QuerySection.jsx';
 import OperNavBar from './OperNavBar.jsx' ;
 import BrandGroupPanel from './BrandGroupPanel.jsx' ;
-import _ from 'underscore';
+var _ = require('lodash');
 import uniquid from 'uniquid' ;
+import jsonData  from '../../api/jsonData.js' ;
+
 class AppLayout extends Component {
   constructor(props) {
     super(props) ;
@@ -25,19 +27,8 @@ class AppLayout extends Component {
   }
   handleAddBrandGroup(){
     let id = uniquid('group_');
-    let title = 'asgui_ca test' ;
-    let seqNum ='8776559' ;
-    let startCity ='1' ;
-    let endCity= '2' ;
-    let startDate = '2016-06-30';
-    let endDate = '9999-12-31' ;
-    let travelStart = '2016-06-30' ;
-    let travelEnd = '2016-06-30' ;
-    let pubObj = '001' ;
-    let stateDesc ='未发布' ;
-    let list = [] ;
-    var param = {id,title,seqNum,startCity,endCity,
-        startDate,endDate,travelStart,travelEnd,pubObj,stateDesc,list} ;
+    let param = _.cloneDeep(jsonData.brandGroupModel);
+    _.assign(param,{id}) ;
     this.props.addBrandGroup(param) ;
   }
   render(){
@@ -56,8 +47,8 @@ class AppLayout extends Component {
               <div id="brand_group_list">
                   {
                     this.props.brandGroups.map((item,index) => {
-                      //let checkFlag = _.contains(this.state.checkedS5List,item.id) ;
-                      let checkFlag =  _.contains(this.props.brandGroupIds,item.id) ;
+                      //let checkFlag =  _.contains(this.props.brandGroupIds,item.id) ;
+                      let checkFlag = (_.indexOf(this.props.brandGroupIds,item.id) != -1) ;
                       return  (
                         <BrandGroupPanel
                           showS7Flag = {index===0}

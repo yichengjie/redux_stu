@@ -44,7 +44,7 @@ class BrandGroupPanel extends Component {
                   return (
                     <RecordS7Item
                       s7 = {item}
-                      key ={index}
+                      key ={item.id}
                       index = {index+1}
                       s5Id = {id}
                       handleDeleteBrand = {this.props.handleDeleteBrand}

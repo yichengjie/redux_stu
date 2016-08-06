@@ -44,5 +44,10 @@ export default  {
         }
       ]
     }
-  ]
+  ],
+  brandGroupModel:{
+    id:'',title:'asgui_ca test',seqNum:'8776559',startCity:'1',endCity:'2',
+    startDate:'2016-06-30',endDate:'9999-12-31',travelStart:'2016-06-30',
+    travelEnd:'2016-06-30',pubObj:'001',stateDesc:'未发布',list:[]
+  }
 } ;
