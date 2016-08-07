@@ -1,6 +1,7 @@
 import AppLayout from '../../views/edit/AppLayout.jsx' ;
 import {connect} from 'react-redux' ;
-import {handleInputChange,handleListInputChange} from  '../../actions/edit/actions.js' ;
+import {handleInputChange,handleListInputChange,
+  handleClickTr,addTableLine,deleteTableLine} from  '../../actions/edit/actions.js' ;
 
 let mapStateToProps = (state,ownProps) =>{
   return {
@@ -15,6 +16,15 @@ let mapDispatchToProps = (dispatch,ownProps) =>{
     },
     handleListInputChange:(param) => {
       dispatch(handleListInputChange(param)) ;
+    },
+    handleClickTr:(param) => {
+      dispatch(handleClickTr(param)) ;
+    },
+    addTableLine:(param) => {
+      dispatch(addTableLine(param)) ;
+    },
+    deleteTableLine:(param) => {
+      dispatch(deleteTableLine(param)) ;
     }
   } ;
 } ;

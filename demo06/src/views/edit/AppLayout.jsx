@@ -14,37 +14,14 @@ class AppLayout extends Component {
   handleListInputChange(param){
     this.props.handleListInputChange(param) ;
   }
-  handleTableAddLine({listName,addObj}){
-    var listVo  = [...this.state[listName],addObj] ;
-    //listVo.push(addObj) ;
-    var obj =  {[listName]:listVo} ;
-    this.setState(obj) ;
+  handleTableAddLine(param){
+    this.props.addTableLine(param) ;
   }
   handleTableDeleteLine(listName){
-    var listVo  = this.state[listName] ;
-    var obj = null ;
-    var evens = _.filter(listVo, function(item){
-      return item.checked !== true;
-    });
-    if(evens.length==listVo.length){
-      obj = {[listName]:listVo.slice(0,listVo.length-1) } ;
-    }else{
-      obj = {[listName]:evens} ;
-    }
-    this.setState(obj) ;
+    this.props.deleteTableLine(listName) ;
   }
   handleTableTrClick(listName,id){
-      var listVo  = this.state[listName] ;
-      var retList = listVo.map((item) => {
-        if(item.id ==id){
-          item.checked = true ;
-        }else{
-            item.checked = false ;
-        }
-        return item ;
-      }) ;
-      var obj = {[listName]:retList} ;
-      this.setState(obj) ;
+    this.props.handleClickTr({listName,id}) ;
   }
   handleSubmit(){
     console.info("准备保存数据到后台 : " + JSON.stringify(this.state)) ;
@@ -54,7 +31,6 @@ class AppLayout extends Component {
     },1000) ;
   }
   render (){
-    console.info( '-----> ' + this.props.brandGroup.seqNum) ;
     return (
       <div className="app">
          <div className="navbar-fixed-top">
