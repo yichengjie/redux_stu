@@ -54,6 +54,7 @@ class AppLayout extends Component {
     },1000) ;
   }
   render (){
+    console.info( '-----> ' + this.props.brandGroup.seqNum) ;
     return (
       <div className="app">
          <div className="navbar-fixed-top">

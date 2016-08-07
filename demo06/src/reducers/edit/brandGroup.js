@@ -23,6 +23,7 @@ export default function brandGroup(state = initState, action) {
   switch (action.type) {
     case HANDLE_INPUTCHANGE:
       let tmpObj = {[action.param.name]:action.param.value} ;
+      console.info(_.assign(state,tmpObj)) ;
       return _.assign(state,tmpObj);
     case HANDLE_LISTINPUTCHANGE:
       let list1 = state[action.param.listName].map((item) => {
