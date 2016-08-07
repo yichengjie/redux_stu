@@ -12,7 +12,7 @@ import TablePublish from './TablePublish.jsx' ;
      let value = target.value ;
      let name = target.name ;
      //console.info('xxxxxxxx ' + name +" , " + value) ;
-     this.props.handleInputChange(name,value) ;
+     this.props.handleInputChange({name,value}) ;
    }
 
    render (){

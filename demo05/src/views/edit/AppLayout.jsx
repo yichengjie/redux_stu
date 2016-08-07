@@ -7,71 +7,21 @@ import _ from 'underscore' ;
 class AppLayout extends Component {
   constructor(props) {
     super(props) ;
-    this.state = {
-      seqNum:"111",
-      title:"",
-      startDate:"",
-      endDate:"",
-      loc1:"",
-      startCity:"",
-      loc2:"",
-      endCity:"",
-      travelStart:"",
-      travelEnd:"",
-      desc:"",
-      locDefine:"1",
-      listPubObjVo:
-      [
-        {id:'001',type:'I',code:'testcode',checked:true}
-      ]
-    } ;
   }
-  handleInputChange(name,value){
-    var obj = {[name]:value} ;
-    this.setState(obj) ;
+  handleInputChange(param){
+    this.props.handleInputChange(param) ;
   }
-  handleListInputChange({listName,id ,name ,value}){
-    //console.info('listName : ' +listName , "id : " + id, "name : " + name ,"value : " + value) ;
-    var listVo = this.state[listName] ;
-    for(let item of listVo){
-      if(item.id === id){
-        item[name] = value ;
-      }
-    }
-    var obj =  {[listName]:listVo} ;
-    this.setState(obj) ;
+  handleListInputChange(param){
+    this.props.handleListInputChange(param) ;
   }
-  handleTableAddLine({listName,addObj}){
-    var listVo  = [...this.state[listName],addObj] ;
-    //listVo.push(addObj) ;
-    var obj =  {[listName]:listVo} ;
-    this.setState(obj) ;
+  handleTableAddLine(param){
+    this.props.addTableLine(param) ;
   }
   handleTableDeleteLine(listName){
-    var listVo  = this.state[listName] ;
-    var obj = null ;
-    var evens = _.filter(listVo, function(item){
-      return item.checked !== true;
-    });
-    if(evens.length==listVo.length){
-      obj = {[listName]:listVo.slice(0,listVo.length-1) } ;
-    }else{
-      obj = {[listName]:evens} ;
-    }
-    this.setState(obj) ;
+    this.props.deleteTableLine(listName) ;
   }
   handleTableTrClick(listName,id){
-      var listVo  = this.state[listName] ;
-      var retList = listVo.map((item) => {
-        if(item.id ==id){
-          item.checked = true ;
-        }else{
-            item.checked = false ;
-        }
-        return item ;
-      }) ;
-      var obj = {[listName]:retList} ;
-      this.setState(obj) ;
+    this.props.handleClickTr({listName,id}) ;
   }
   handleSubmit(){
     console.info("准备保存数据到后台 : " + JSON.stringify(this.state)) ;
@@ -90,7 +40,7 @@ class AppLayout extends Component {
             />
          </div>
          <div className="container-fluid main_content" id="main_content" >
-           <EditForm  {...this.state}
+           <EditForm  {...this.props.brandGroup}
               handleInputChange ={this.handleInputChange.bind(this)}
               handleListInputChange={this.handleListInputChange.bind(this)}
               handleTableAddLine = {this.handleTableAddLine.bind(this)}
