@@ -14,8 +14,11 @@ class QuerySection extends Component {
       endDate:""
     };
   }
+  componentDidMount(){
+    this.handleQueryBrand() ;
+  }
   handleQueryBrand(){
-    let params = {...this.state} ;
+    let params = this.state ;
     this.props.queryBrandGroups(params) ;
   }
   handleInputChange(name,event){
