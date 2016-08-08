@@ -48,6 +48,7 @@
          </td>
          <td>
             <input type="text" className="common_input required"
+              name = {'code' + id}
               value = {item.code}
               onChange = {this.handleInputChange.bind(this,id,'code')}
               style={{"width":"98%"}}/>

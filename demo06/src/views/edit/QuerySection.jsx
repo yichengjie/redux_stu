@@ -13,8 +13,9 @@ class QuerySection extends Component {
      }
      var jqFlag = validator.form() ;
      console.info('jqFlag: ' + jqFlag) ;
-     console.info(JSON.stringify(formData)) ;
-     this.props.submitForm(flag) ;
+     if(jqFlag){
+       //this.props.submitForm(flag) ;
+     }
   }
   render(){
     return (
