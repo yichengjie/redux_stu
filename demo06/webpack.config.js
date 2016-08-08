@@ -12,7 +12,7 @@ module.exports = {
         filename: '[name].js',
         publicPath:'./dist'
     },
-    devtool: 'eval-source-map',
+    //devtool: 'eval-source-map',
     module: {
         preLoaders: [
           {
@@ -36,6 +36,14 @@ module.exports = {
     },
     plugins: [
         new webpack.BannerPlugin('{compony travelsky-dbky ,\n author: yicj,\n email : 626659321@qq.com,\ncreate-date:2016/05/05}')
+        ,new webpack.ProvidePlugin({
+          $: 'jquery'
+        })//这个可以使jquery变成全局变量，妮不用在自己文件require('jquery')了
+        //new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.bundle.js')//这是妮第三方库打包生成的文件
+        ,new webpack.optimize.CommonsChunkPlugin({
+          name: "commons",
+          filename: "commons.js"
+        })
         // ,new webpack.optimize.UglifyJsPlugin({
         //     compress: {warnings: false}
         // }),
