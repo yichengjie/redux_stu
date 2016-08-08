@@ -6,7 +6,7 @@ class RecordS5Item extends Component {
   }
   handleNewBrand(){
      let id = this.props.s5.id ;
-     console.info('新建品牌集 id : ' + id) ;
+     this.props.handleAddBrand(id) ;
   }
   handleSelectS5(event){
      event.stopPropagation() ;
@@ -44,5 +44,4 @@ class RecordS5Item extends Component {
     ) ;
   }
 }
-
 export default RecordS5Item ;

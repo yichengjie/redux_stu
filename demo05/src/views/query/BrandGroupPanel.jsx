@@ -14,13 +14,11 @@ class BrandGroupPanel extends Component {
        showS7Flag: false
      };
   }
-
   componentDidMount(){
     if(this.props.showS7Flag){
        this.setState({showS7Flag:true}) ;
     }
   }
-
   handleChangeShowHide(){
     this.setState({showS7Flag:!this.state.showS7Flag}) ;
   }
@@ -34,6 +32,7 @@ class BrandGroupPanel extends Component {
                 checkFlag = {this.props.checkFlag}
                 handleSelectS5 = {this.props.handleSelectS5}
                 handleChangeShowHide ={this.handleChangeShowHide.bind(this)}
+                handleAddBrand = {this.props.handleAddBrand}
               />
             </div>
           </div>
@@ -44,7 +43,7 @@ class BrandGroupPanel extends Component {
                   return (
                     <RecordS7Item
                       s7 = {item}
-                      key ={index}
+                      key ={item.id}
                       index = {index+1}
                       s5Id = {id}
                       handleDeleteBrand = {this.props.handleDeleteBrand}
