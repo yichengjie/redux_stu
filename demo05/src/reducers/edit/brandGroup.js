@@ -54,7 +54,7 @@ export default function brandGroup(state = initState, action) {
         return item.checked !== true;
       });
       if(evens.length==list4.length){
-        obj = {[action.listName]:list4.slice(0,listVo.length-1) } ;
+        obj = {[action.listName]:list4.slice(0,list4.length-1) } ;
       }else{
         obj = {[action.listName]:evens} ;
       }
