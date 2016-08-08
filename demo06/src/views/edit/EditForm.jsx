@@ -26,7 +26,7 @@ import TablePublish from '../../containers/edit/TablePublish.js' ;
            _self.props.handleInputChange({name:"startDate",value:dateText}) ;
         }
       }) ;
-      
+
      $(':input[name=endDate]').datepicker({
        minDate:currDate,
        showButtonPanel:true,
@@ -49,7 +49,7 @@ import TablePublish from '../../containers/edit/TablePublish.js' ;
                 <div className="right">
                    <div className="form-group">
                         <label className="pure-u-1-8 control-label">序列号</label>
-                        <div className="pure-u-1-4">
+                        <div className="pure-u-1-3">
                             <input type="text" name ="seqNum" className="form-control"
                               value = {this.props.formData.seqNum}
                               onChange = {this.handleInputChange.bind(this)}
@@ -59,7 +59,7 @@ import TablePublish from '../../containers/edit/TablePublish.js' ;
                     </div>
                     <div className="form-group">
                         <label className="pure-u-1-8 control-label">品牌集名称</label>
-                        <div className="pure-u-1-4">
+                        <div className="pure-u-1-3">
                             <input type="text"  className="form-control"
                               name ="title"
                               value = {this.props.formData.title}
@@ -70,7 +70,7 @@ import TablePublish from '../../containers/edit/TablePublish.js' ;
 
                     <div className="form-group">
                         <label className="pure-u-1-8 control-label">销售日期</label>
-                        <div className="pure-u-1-8">
+                        <div className="pure-u-1-6">
                             <input type="text"  className="form-control"
                             name ="startDate"
                             value = {this.props.formData.startDate}
@@ -79,7 +79,7 @@ import TablePublish from '../../containers/edit/TablePublish.js' ;
                         </div>
                         <label htmlFor="id2"
                           className="glyphicon glyphicon-calendar iconfont_box"></label>
-                        <div className="pure-u-1-8">
+                        <div className="pure-u-1-6">
                             <input type="text"  className="form-control"
                             name ="endDate"
                             value ={this.props.formData.endDate}
@@ -92,7 +92,7 @@ import TablePublish from '../../containers/edit/TablePublish.js' ;
 
                     <div className="form-group">
                         <label className="pure-u-1-8 control-label">区域1</label>
-                        <div className="pure-u-1-8">
+                        <div className="pure-u-1-6">
                             <select name="loc1" name ="loc1"
                               className="form-control"
                                value ={this.props.formData.loc1}
@@ -107,7 +107,7 @@ import TablePublish from '../../containers/edit/TablePublish.js' ;
                                 <option value="Z">Z-区域</option>
                             </select>
                         </div>
-                        <div className="pure-u-1-8">
+                        <div className="pure-u-1-6">
                             <input type="text"  className="form-control"
                             name ="startCity"
                             onChange = {this.handleInputChange.bind(this)}
@@ -118,7 +118,7 @@ import TablePublish from '../../containers/edit/TablePublish.js' ;
 
                     <div className="form-group">
                         <label className="pure-u-1-8 control-label">区域2</label>
-                        <div className="pure-u-1-8">
+                        <div className="pure-u-1-6">
                             <select name="loc2"
                               className="form-control"
                               value ={this.props.formData.loc2}
@@ -132,7 +132,7 @@ import TablePublish from '../../containers/edit/TablePublish.js' ;
                                 <option value="Z">Z-区域</option>
                             </select>
                         </div>
-                        <div className="pure-u-1-8">
+                        <div className="pure-u-1-6">
                             <input type="text"  className="form-control"
                               name ="endCity"
                               onChange = {this.handleInputChange.bind(this)}
@@ -178,19 +178,19 @@ import TablePublish from '../../containers/edit/TablePublish.js' ;
                 <div className="right">
                     <div className="form-group">
                         <label className="pure-u-1-8 control-label">旅行日期</label>
-                        <div className="pure-u-1-8">
+                        <div className="pure-u-1-6">
                             <input type="text"  className="form-control"
                               name = "travelStart"
                               value = {this.props.formData.travelStart}
                               onChange = {this.handleInputChange.bind(this)}
                              placeholder="范围" />
                         </div>
-                        <div className="pure-u-1-8">
+                        <div className="pure-u-1-6">
                             <input type="text"  className="form-control"
                               name ="travelEnd"
                               value = {this.props.formData.travelEnd}
                               onChange = {this.handleInputChange.bind(this)}
-                             placeholder="范围" />
+                              placeholder="范围" />
                         </div>
                     </div>
 
