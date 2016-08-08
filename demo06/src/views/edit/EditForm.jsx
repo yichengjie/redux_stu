@@ -17,6 +17,23 @@ import TablePublish from '../../containers/edit/TablePublish.js' ;
    componentDidMount(){
      var validator = $("#myEditForm").validate({meta : ""});
 		 window.validator = validator ;
+     var currDate = new Date();//onSelect = function(dateText,picker){
+     let _self = this ;
+     $(':input[name=startDate]').datepicker({
+        minDate:currDate,
+        showButtonPanel:true,
+        onSelect:function(dateText,picker){
+           _self.props.handleInputChange({name:"startDate",value:dateText}) ;
+        }
+      }) ;
+      
+     $(':input[name=endDate]').datepicker({
+       minDate:currDate,
+       showButtonPanel:true,
+       onSelect:function(dateText,picker){
+          _self.props.handleInputChange({name:"endDate",value:dateText}) ;
+       }
+     }) ;
    }
 
    render (){
@@ -44,10 +61,10 @@ import TablePublish from '../../containers/edit/TablePublish.js' ;
                         <label className="pure-u-1-8 control-label">品牌集名称</label>
                         <div className="pure-u-1-4">
                             <input type="text"  className="form-control"
-                            name ="title"
-                            value = {this.props.formData.title}
-                            onChange = {this.handleInputChange.bind(this)}
-                            placeholder="数字" />
+                              name ="title"
+                              value = {this.props.formData.title}
+                              onChange = {this.handleInputChange.bind(this)}
+                              placeholder="数字" />
                         </div>
                     </div>
 
@@ -60,7 +77,8 @@ import TablePublish from '../../containers/edit/TablePublish.js' ;
                             onChange = {this.handleInputChange.bind(this)}
                             placeholder="范围" />
                         </div>
-                        <label htmlFor="id2" className="glyphicon glyphicon-th iconfont_box"></label>
+                        <label htmlFor="id2"
+                          className="glyphicon glyphicon-calendar iconfont_box"></label>
                         <div className="pure-u-1-8">
                             <input type="text"  className="form-control"
                             name ="endDate"
@@ -68,7 +86,8 @@ import TablePublish from '../../containers/edit/TablePublish.js' ;
                             onChange = {this.handleInputChange.bind(this)}
                             placeholder="范围" />
                         </div>
-                        <label htmlFor="id2" className="glyphicon glyphicon-th iconfont_box"></label>
+                        <label htmlFor="id2"
+                          className="glyphicon glyphicon-calendar iconfont_box"></label>
                     </div>
 
                     <div className="form-group">

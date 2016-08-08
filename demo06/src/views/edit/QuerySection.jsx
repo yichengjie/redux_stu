@@ -12,10 +12,10 @@ class QuerySection extends Component {
        flag = false ;
      }
      var jqFlag = validator.form() ;
-     console.info('jqFlag: ' + jqFlag) ;
-     if(jqFlag){
-       //this.props.submitForm(flag) ;
-     }
+     console.info(formData) ;
+    //  if(jqFlag){
+    //    this.props.submitForm(flag) ;
+    //  }
   }
   render(){
     return (

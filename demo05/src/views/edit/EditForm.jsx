@@ -56,7 +56,8 @@ import TablePublish from './TablePublish.jsx' ;
                             onChange = {this.handleInputChange.bind(this)}
                             placeholder="范围" />
                         </div>
-                        <label htmlFor="id2" className="glyphicon glyphicon-th iconfont_box"></label>
+                        <label htmlFor="id2"
+                          className="glyphicon glyphicon-calendar iconfont_box"></label>
                         <div className="pure-u-1-8">
                             <input type="text"  className="form-control"
                             name ="endDate"
@@ -64,7 +65,8 @@ import TablePublish from './TablePublish.jsx' ;
                             onChange = {this.handleInputChange.bind(this)}
                             placeholder="范围" />
                         </div>
-                        <label htmlFor="id2" className="glyphicon glyphicon-th iconfont_box"></label>
+                        <label htmlFor="id2"
+                          className="glyphicon glyphicon-calendar iconfont_box"></label>
                     </div>
 
                     <div className="form-group">
