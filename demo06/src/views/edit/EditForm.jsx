@@ -14,9 +14,14 @@ import TablePublish from '../../containers/edit/TablePublish.js' ;
      this.props.handleInputChange({name,value}) ;
    }
 
+   componentDidMount(){
+     var validator = $("#myEditForm").validate({meta : ""});
+		 window.validator = validator ;
+   }
+
    render (){
      return (
-       <form className="form-horizontal">
+       <form className="form-horizontal" id ="myEditForm">
           <div className="data_section ">
              <div className="title_layout">
                 <span className="left">品牌集</span>

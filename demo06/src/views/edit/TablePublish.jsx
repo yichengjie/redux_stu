@@ -47,7 +47,7 @@
              </select>
          </td>
          <td>
-            <input type="text" className="common_input"
+            <input type="text" className="common_input required"
               value = {item.code}
               onChange = {this.handleInputChange.bind(this,id,'code')}
               style={{"width":"98%"}}/>

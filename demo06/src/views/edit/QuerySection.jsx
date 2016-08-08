@@ -11,6 +11,8 @@ class QuerySection extends Component {
      if(seqNum!=='123'){
        flag = false ;
      }
+     var jqFlag = validator.form() ;
+     console.info('jqFlag: ' + jqFlag) ;
      console.info(JSON.stringify(formData)) ;
      this.props.submitForm(flag) ;
   }
@@ -21,7 +23,7 @@ class QuerySection extends Component {
             <span className="query_title">新建品牌集</span>
             <span className="marginLR5">品牌集</span>
             <span className="pull-right marginR15">
-                <button type="button" className="btn btn-sm btn-default">返回</button>
+                <button type="button" className="btn btn-sm btn-default marginR5" >返回</button>
                 <button type="button" className="btn btn-sm btn-success" onClick = {this.handleSaveBrandgroup.bind(this)} >保存</button>
             </span>
         </div>
