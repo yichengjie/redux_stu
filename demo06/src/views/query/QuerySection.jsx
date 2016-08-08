@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import _ from 'underscore';
+import util  from 'util_lib' ;
 class QuerySection extends Component {
   constructor(props) {
     super(props) ;
@@ -19,7 +20,11 @@ class QuerySection extends Component {
   }
   handleQueryBrand(){
     let params = this.state ;
-    this.props.queryBrandGroups(params) ;
+    util.showLoading() ;
+    setTimeout(function(){
+      this.props.queryBrandGroups(params) ;
+      util.hideLoading() ;
+    }.bind(this),1000) ;
   }
   handleInputChange(name,event){
     let value = event.target.value ;

@@ -4,12 +4,10 @@ import QuerySection from '../../containers/query/QuerySection.js';
 import OperNavBar from '../../containers/query/OperNavBar.js' ;
 import BrandGroupPanel from './BrandGroupPanel.jsx' ;
 var _ = require('lodash');
-var util = require('util_lib') ;
 
 class AppLayout extends Component {
   constructor(props) {
     super(props) ;
-    util.showLoading() ;
   }
   render(){
     return (

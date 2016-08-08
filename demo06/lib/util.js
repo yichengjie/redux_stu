@@ -346,5 +346,6 @@
 	   }
 	   return flag;
   };
-	module.exports = util ;
+	//module.exports = util ;
+	export default util ;
 //});
