@@ -34,14 +34,14 @@ module.exports = {
             test: /\.(js|jsx)$/,
             loader: 'eslint-loader',
             include: [path.resolve(__dirname, "src")],
-            exclude: /(node_modules|bower_components)/
+            exclude: /(node_modules|bower_components|lib)/
           },
         ],
         loaders: [
             {
                 test: /.(jsx|js)?$/,
                 loader: 'babel',
-                exclude: /(node_modules|bower_components)/,
+                exclude: /(node_modules|bower_components|lib)/,
                 loader: 'babel', // 'babel-loader' is also a legal name to reference
                 query: {
                     presets: ['es2015', 'react']

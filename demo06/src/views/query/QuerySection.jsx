@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import _ from 'underscore';
-import util  from 'util_lib' ;
+let util = require('util_lib') ;
 class QuerySection extends Component {
   constructor(props) {
     super(props) ;
