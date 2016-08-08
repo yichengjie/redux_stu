@@ -5,7 +5,14 @@ class QuerySection extends Component {
     super(props) ;
   }
   handleSaveBrandgroup(){
-     this.props.handleSubmit() ;
+     let flag = true ;
+     let formData = this.props.formData ;
+     let seqNum = formData.seqNum ;
+     if(seqNum!=='123'){
+       flag = false ;
+     }
+     console.info(JSON.stringify(formData)) ;
+     this.props.submitForm(flag) ;
   }
   render(){
     return (

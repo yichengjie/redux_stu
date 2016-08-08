@@ -1,6 +1,6 @@
 import {ADD_BRANDGROUP,HANDLE_INPUTCHANGE,
-  HANDLE_LISTINPUTCHANGE,HANDLE_CLICKTR,ADD_TABLELINE,DELETE_TABLELINE}
-  from '../../actions/edit/actions.js' ;
+  HANDLE_LISTINPUTCHANGE,HANDLE_CLICKTR,ADD_TABLELINE,DELETE_TABLELINE,
+  SUBMIT_FORM}from '../../actions/edit/actions.js' ;
 import _ from 'lodash' ;
 let initState = {
   seqNum:"123",
@@ -59,6 +59,11 @@ export default function brandGroup(state = initState, action) {
         obj = {[action.listName]:evens} ;
       }
       return _.assign({},state,obj);
+    case SUBMIT_FORM:
+      if(action.flag){
+        return initState ;
+      }
+      return state ;
     case ADD_BRANDGROUP:
       return {};
     default:

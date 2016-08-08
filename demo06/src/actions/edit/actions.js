@@ -4,6 +4,8 @@ export const HANDLE_LISTINPUTCHANGE = 'HANDLE_LISTINPUTCHANGE' ;//handleListInpu
 export const HANDLE_CLICKTR =  'HANDLE_CLICKTR' ;
 export const ADD_TABLELINE = 'ADD_TABLELINE'  ;//addTableLine
 export const DELETE_TABLELINE = 'DELETE_TABLELINE' ;
+export const SUBMIT_FORM = 'SUBMIT_FORM' ;
+
 
 export function handleInputChange(param){
     return {type:HANDLE_INPUTCHANGE,param} ;
@@ -27,4 +29,8 @@ export function addTableLine (param){
 
 export function deleteTableLine (param){
   return {type:DELETE_TABLELINE,listName:param} ;
+}
+
+export function submitForm(flag){
+  return {type:SUBMIT_FORM,flag} ;
 }

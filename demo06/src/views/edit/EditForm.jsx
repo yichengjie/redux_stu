@@ -1,6 +1,5 @@
 import React ,{Component} from 'react';
-import TablePublish from './TablePublish.jsx' ;
-
+import TablePublish from '../../containers/edit/TablePublish.js' ;
 
  class EditForm extends Component {
    constructor(props) {
@@ -30,7 +29,7 @@ import TablePublish from './TablePublish.jsx' ;
                         <label className="pure-u-1-8 control-label">序列号</label>
                         <div className="pure-u-1-4">
                             <input type="text" name ="seqNum" className="form-control"
-                              value = {this.props.seqNum}
+                              value = {this.props.formData.seqNum}
                               onChange = {this.handleInputChange.bind(this)}
                               placeholder="数字"/>
                         </div>
@@ -41,7 +40,7 @@ import TablePublish from './TablePublish.jsx' ;
                         <div className="pure-u-1-4">
                             <input type="text"  className="form-control"
                             name ="title"
-                            value = {this.props.title}
+                            value = {this.props.formData.title}
                             onChange = {this.handleInputChange.bind(this)}
                             placeholder="数字" />
                         </div>
@@ -52,7 +51,7 @@ import TablePublish from './TablePublish.jsx' ;
                         <div className="pure-u-1-8">
                             <input type="text"  className="form-control"
                             name ="startDate"
-                            value = {this.props.startDate}
+                            value = {this.props.formData.startDate}
                             onChange = {this.handleInputChange.bind(this)}
                             placeholder="范围" />
                         </div>
@@ -60,7 +59,7 @@ import TablePublish from './TablePublish.jsx' ;
                         <div className="pure-u-1-8">
                             <input type="text"  className="form-control"
                             name ="endDate"
-                            value ={this.props.endDate}
+                            value ={this.props.formData.endDate}
                             onChange = {this.handleInputChange.bind(this)}
                             placeholder="范围" />
                         </div>
@@ -72,7 +71,7 @@ import TablePublish from './TablePublish.jsx' ;
                         <div className="pure-u-1-8">
                             <select name="loc1" name ="loc1"
                               className="form-control"
-                               value ={this.props.loc1}
+                               value ={this.props.formData.loc1}
                                onChange = {this.handleInputChange.bind(this)}
                                >
                                 <option value="">选择</option>
@@ -88,7 +87,7 @@ import TablePublish from './TablePublish.jsx' ;
                             <input type="text"  className="form-control"
                             name ="startCity"
                             onChange = {this.handleInputChange.bind(this)}
-                            value ={this.props.startCity}
+                            value ={this.props.formData.startCity}
                             placeholder="范围" />
                         </div>
                     </div>
@@ -98,7 +97,7 @@ import TablePublish from './TablePublish.jsx' ;
                         <div className="pure-u-1-8">
                             <select name="loc2"
                               className="form-control"
-                              value ={this.props.loc2}
+                              value ={this.props.formData.loc2}
                               onChange = {this.handleInputChange.bind(this)}>
                                 <option value="">选择</option>
                                 <option value="A">A-大区</option>
@@ -113,7 +112,7 @@ import TablePublish from './TablePublish.jsx' ;
                             <input type="text"  className="form-control"
                               name ="endCity"
                               onChange = {this.handleInputChange.bind(this)}
-                              value ={this.props.endCity}
+                              value ={this.props.formData.endCity}
                               placeholder="范围" />
                         </div>
                     </div>
@@ -125,19 +124,19 @@ import TablePublish from './TablePublish.jsx' ;
                                 <input type="radio" name ="locDefine" id="r1"
                                 value ="1"
                                 onChange = {this.handleInputChange.bind(this)}
-                                checked = {this.props.locDefine == '1'}/>
+                                checked = {this.props.formData.locDefine == '1'}/>
                                 <label htmlFor="r1" className="myhand">区域1→区域2</label>
                             </div>
                             <div className="radio-inline">
                                 <input type="radio" name ="locDefine" id="r2"
-                                 checked = {this.props.locDefine== '2'}
+                                 checked = {this.props.formData.locDefine== '2'}
                                  onChange = {this.handleInputChange.bind(this)}
                                  value ="2"/>
                                 <label htmlFor="r2" className="myhand">区域2→区域1</label>
                             </div>
                             <div className="radio-inline">
                                 <input type="radio" name ="locDefine" id="r3"
-                                checked = {this.props.locDefine == '3'}
+                                checked = {this.props.formData.locDefine == '3'}
                                 onChange = {this.handleInputChange.bind(this)}
                                 value="3"/>
                                 <label htmlFor="r3" className="myhand">双向</label>
@@ -158,14 +157,14 @@ import TablePublish from './TablePublish.jsx' ;
                         <div className="pure-u-1-8">
                             <input type="text"  className="form-control"
                               name = "travelStart"
-                              value = {this.props.travelStart}
+                              value = {this.props.formData.travelStart}
                               onChange = {this.handleInputChange.bind(this)}
                              placeholder="范围" />
                         </div>
                         <div className="pure-u-1-8">
                             <input type="text"  className="form-control"
                               name ="travelEnd"
-                              value = {this.props.travelEnd}
+                              value = {this.props.formData.travelEnd}
                               onChange = {this.handleInputChange.bind(this)}
                              placeholder="范围" />
                         </div>
@@ -174,13 +173,7 @@ import TablePublish from './TablePublish.jsx' ;
                     <div className="form-group">
                         <label  className="pure-u-1-8 control-label">发布</label>
                         <div className="pure-u-1-2">
-                            <TablePublish
-                              list = {this.props.listPubObjVo}
-                              handleListInputChange = {this.props.handleListInputChange.bind(this)}
-                              handleTableAddLine = {this.props.handleTableAddLine.bind(this)}
-                              handleTableDeleteLine = {this.props.handleTableDeleteLine.bind(this)}
-                              handleTableTrClick = {this.props.handleTableTrClick.bind(this)}
-                            />
+                            <TablePublish/>
                         </div>
                     </div>
 
@@ -189,7 +182,7 @@ import TablePublish from './TablePublish.jsx' ;
                         <div className="pure-u-1-3">
                             <textarea className="form-control"
                              name ="desc"
-                             value = {this.props.desc}
+                             value = {this.props.formData.desc}
                              onChange = {this.handleInputChange.bind(this)}
                              rows="3"></textarea>
                         </div>

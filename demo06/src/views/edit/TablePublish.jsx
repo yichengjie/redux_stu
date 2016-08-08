@@ -21,15 +21,15 @@
      let code = "" ;
      let addObj = {id,type,code} ;
      let param = {listName,addObj} ;
-     this.props.handleTableAddLine(param) ;
+     this.props.addTableLine(param) ;
    }
    deleteTableLine(){
      let listName = "listPubObjVo" ;
-     this.props.handleTableDeleteLine(listName) ;
+     this.props.deleteTableLine(listName) ;
    }
    handleClickTr(id){
      let listName = "listPubObjVo" ;
-     this.props.handleTableTrClick(listName,id) ;
+     this.props.handleClickTr({listName,id}) ;
    }
    renderTr(item){
      var id = item.id ;
