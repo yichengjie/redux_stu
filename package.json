@@ -41,12 +41,16 @@
     "webpack-dev-server": "^1.14.1"
   },
   "dependencies": {
+    "classnames": "^2.2.5",
     "immutable": "^3.8.1",
+    "joi": "^9.0.4",
+    "joi-validation-strategy": "^0.3.3",
     "jquery": "^1.12.4",
     "lodash": "^4.14.1",
     "react": "^15.2.1",
     "react-dom": "^15.2.1",
     "react-redux": "^4.4.5",
+    "react-validation-mixin": "^5.4.0",
     "redux": "^3.5.2",
     "redux-form": "^5.3.2",
     "underscore": "^1.8.3",

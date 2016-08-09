@@ -17,7 +17,7 @@ let initState = {
   locDefine:"1",
   listPubObjVo:
   [
-    {id:'001',type:'I',code:'testcode',checked:true}
+    {id:'001',type:'I',code:'',checked:true}
   ]
 };
 
