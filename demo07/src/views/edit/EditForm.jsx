@@ -1,7 +1,7 @@
 import React ,{Component} from 'react';
 import TablePublish from '../../containers/edit/TablePublish.js' ;
 import DatePickerInput from '../../components/DatePickerInput.jsx' ;
-import Joi from 'joi';
+//import Joi from 'joi';
 //import validation from 'react-validation-mixin';
 //import strategy from 'joi-validation-strategy';
 //import classnames from 'classnames';

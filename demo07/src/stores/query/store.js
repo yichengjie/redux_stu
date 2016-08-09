@@ -6,6 +6,7 @@ let reducer = combineReducers({
 	 brandGroups,
 	 brandGroupIds
 }) ;
-let store = createStore(reducer) ;
+//let store = createStore(reducer) ;
+let store = createStore(reducer, window.devToolsExtension && window.devToolsExtension());
 export default store;
 //export default createStore(reducer) ;
