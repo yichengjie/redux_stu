@@ -71,22 +71,22 @@ import TablePublish from '../../containers/edit/TablePublish.js' ;
                     <div className="form-group">
                         <label className="pure-u-1-8 control-label">销售日期</label>
                         <div className="pure-u-1-6">
-                            <input type="text"  className="form-control"
+                            <input type="text" id ="startDate"  className="form-control"
                             name ="startDate"
                             value = {this.props.formData.startDate}
                             onChange = {this.handleInputChange.bind(this)}
                             placeholder="范围" />
                         </div>
-                        <label htmlFor="id2"
+                        <label htmlFor="startDate"
                           className="glyphicon glyphicon-calendar iconfont_box"></label>
                         <div className="pure-u-1-6">
-                            <input type="text"  className="form-control"
+                            <input type="text" id ="endDate"  className="form-control"
                             name ="endDate"
                             value ={this.props.formData.endDate}
                             onChange = {this.handleInputChange.bind(this)}
                             placeholder="范围" />
                         </div>
-                        <label htmlFor="id2"
+                        <label htmlFor="endDate"
                           className="glyphicon glyphicon-calendar iconfont_box"></label>
                     </div>
 
