@@ -1,12 +1,40 @@
 import React ,{Component} from 'react';
 import TablePublish from '../../containers/edit/TablePublish.js' ;
 import DatePickerInput from '../../components/DatePickerInput.jsx' ;
+import Joi from 'joi';
+//import validation from 'react-validation-mixin';
+//import strategy from 'joi-validation-strategy';
+//import classnames from 'classnames';
 
 
  class EditForm extends Component {
    constructor(props) {
-     super(props) ;
+      super(props) ;
+      this.validatorTypes = {
+        seqNum: Joi.string().alphanum().min(3).max(30).required().label('Username')
+      };
+      this.getValidatorData = this.getValidatorData.bind(this);
+      this.renderHelpText = this.renderHelpText.bind(this);
+      this.getClasses = this.getClasses.bind(this);
    }
+
+   getValidatorData() {
+      return this.props.formData ;
+   }
+   //<span className="errorInfo_validate">这里是错误提示信息</span>
+   renderHelpText(message) {
+     return (
+       <span className="errorInfo_validate">{message}</span>
+     );
+   }
+
+   getClasses(field) {
+     return classnames({
+       'form-group': true,
+       'has-error': !this.props.isValid(field)
+     });
+   }
+
 
    handleInputChange(event){
      let target = event.target ;
@@ -40,7 +68,8 @@ import DatePickerInput from '../../components/DatePickerInput.jsx' ;
                               onChange = {this.handleInputChange.bind(this)}
                               placeholder="数字"/>
                         </div>
-                        <span className="errorInfo_validate">这里是错误提示信息</span>
+                        {this.renderHelpText(this.props.getValidationMessages('seqNum'))}
+
                     </div>
                     <div className="form-group">
                         <label className="pure-u-1-8 control-label">品牌集名称</label>
@@ -209,4 +238,5 @@ import DatePickerInput from '../../components/DatePickerInput.jsx' ;
      ) ;
    }
  }
- export default EditForm ;
+ //module.exports = validation(strategy)(UserLogin);
+ export default validation(strategy)(EditForm) ;
