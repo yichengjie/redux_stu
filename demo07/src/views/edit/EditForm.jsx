@@ -1,5 +1,7 @@
 import React ,{Component} from 'react';
 import TablePublish from '../../containers/edit/TablePublish.js' ;
+import DatePickerInput from '../../components/DatePickerInput.jsx' ;
+
 
  class EditForm extends Component {
    constructor(props) {
@@ -17,23 +19,6 @@ import TablePublish from '../../containers/edit/TablePublish.js' ;
    componentDidMount(){
      var validator = $("#myEditForm").validate({meta : ""});
 		 window.validator = validator ;
-     var currDate = new Date();//onSelect = function(dateText,picker){
-     let _self = this ;
-     $(':input[name=startDate]').datepicker({
-        minDate:currDate,
-        showButtonPanel:true,
-        onSelect:function(dateText,picker){
-           _self.props.handleInputChange({name:"startDate",value:dateText}) ;
-        }
-      }) ;
-
-     $(':input[name=endDate]').datepicker({
-       minDate:currDate,
-       showButtonPanel:true,
-       onSelect:function(dateText,picker){
-          _self.props.handleInputChange({name:"endDate",value:dateText}) ;
-       }
-     }) ;
    }
 
    render (){
@@ -71,20 +56,24 @@ import TablePublish from '../../containers/edit/TablePublish.js' ;
                     <div className="form-group">
                         <label className="pure-u-1-8 control-label">销售日期</label>
                         <div className="pure-u-1-6">
-                            <input type="text" id ="startDate"  className="form-control"
-                            name ="startDate"
-                            value = {this.props.formData.startDate}
-                            onChange = {this.handleInputChange.bind(this)}
-                            placeholder="范围" />
+                            <DatePickerInput
+                              id ="startDate"
+                              name ="startDate"
+                              value = {this.props.formData.startDate}
+                              handleInputChange = {this.props.handleInputChange}
+                              placeholder="范围"
+                            />
                         </div>
                         <label htmlFor="startDate"
                           className="glyphicon glyphicon-calendar iconfont_box"></label>
                         <div className="pure-u-1-6">
-                            <input type="text" id ="endDate"  className="form-control"
-                            name ="endDate"
-                            value ={this.props.formData.endDate}
-                            onChange = {this.handleInputChange.bind(this)}
-                            placeholder="范围" />
+                            <DatePickerInput
+                              id ="endDate"
+                              name ="endDate"
+                              value = {this.props.formData.endDate}
+                              handleInputChange = {this.props.handleInputChange}
+                              placeholder="范围"
+                            />
                         </div>
                         <label htmlFor="endDate"
                           className="glyphicon glyphicon-calendar iconfont_box"></label>
