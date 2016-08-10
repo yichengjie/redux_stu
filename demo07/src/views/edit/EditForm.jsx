@@ -11,9 +11,6 @@ import Validator from '../../components/validator.js' ;
  class EditForm extends Component {
    constructor(props) {
       super(props) ;
-      this.validatorTypes = {
-        seqNum: Joi.string().alphanum().min(3).max(30).required().label('Username')
-      };
       this.getValidatorData = this.getValidatorData.bind(this);
       this.renderHelpText = this.renderHelpText.bind(this);
       this.getClasses = this.getClasses.bind(this);
@@ -65,10 +62,7 @@ import Validator from '../../components/validator.js' ;
            }
          }
      } ;
-     let validator2 = new Validator(rules) ;
-
-
-
+     //let validator2 = new Validator(rules) ;
 
    }
 
@@ -93,7 +87,6 @@ import Validator from '../../components/validator.js' ;
                         </div>
                     </div>
 
-                    
                     <div className="form-group">
                         <label className="pure-u-1-8 control-label">品牌集名称</label>
                         <div className="pure-u-1-3">
@@ -262,4 +255,5 @@ import Validator from '../../components/validator.js' ;
    }
  }
  //module.exports = validation(strategy)(UserLogin);
- export default validation(strategy)(EditForm) ;
+ //export default validation(strategy)(EditForm) ;
+ export default  EditForm ;
