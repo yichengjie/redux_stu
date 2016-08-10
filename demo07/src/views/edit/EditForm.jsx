@@ -45,19 +45,33 @@ import Validator from 'validator_lib' ;
    }
 
    componentDidMount(){
+     var _self = this ;
      var validator = $("#myEditForm").validate({meta : ""});
 		 window.validator = validator ;
      let rules = {
        seqNum: {
            required: true,
            maxLength: 10,
+           seqNum:true,
            message: {
              required: 'username is required',
-             maxLength: 'username max length is 10'
+             maxLength: 'username max length is 10',
+             seqNum:'当序列号为 123 时，品牌集名称必须为 456 '
            }
          }
      } ;
      let validator2 = new Validator(rules) ;
+
+     validator2.rule('seqNum', function(param, val) {
+       if(val==='123'){
+         if(_self.props.formData.title==='456'){
+           return true ;
+         }
+         return false;
+       }
+       return true ;
+     }) ;
+
      window.validator2 = validator2 ;
    }
 

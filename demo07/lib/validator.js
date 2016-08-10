@@ -42,9 +42,9 @@
 //     }
 //   }
 // } ;
-let _ = {
-  log:function(...agrs){
-    console.log.apply(console, agrs);
+var _ = {
+  log:function(){
+    console.log.apply(console, arguments);
   },
   keys:function(obj){
     obj = obj || {} ;
@@ -563,4 +563,4 @@ Validator.prototype.number2point = function number(param, value) {
   return result;
 };
 
-export default Validator ;
+module.exports = Validator ;
