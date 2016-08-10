@@ -13,13 +13,20 @@ class DatePickerInput extends Component {
       placeholder:'范围'
     };
   }
-  handleInputChange(value){
+  handleInputChange2(value){
     let name = this.props.name ;
     if(this.props.handleInputChange){
       this.props.handleInputChange({name,value}) ;
     }
     this.setState({value}) ;
   }
+
+  handleInputChange(event){
+    let value = event.target.value ;
+    console.info(value) ;
+    this.handleInputChange2(value) ;
+  }
+
   componentDidMount(){
     let _self = this ;
     let input = ReactDOM.findDOMNode(this) ;
@@ -28,19 +35,23 @@ class DatePickerInput extends Component {
        minDate:currDate,
        showButtonPanel:true,
        onSelect:function(dateText,picker){
-          _self.handleInputChange(dateText) ;
+          _self.handleInputChange2(dateText) ;
+          _self.props.handleValidateInput(_self.props.name);
        }
      }) ;
   }
   render (){
     let value = this.props.value || this.state.value ;
+    let name = this.props.name ;
     return (
       <input type="text"
         id = {this.props.id}
         className="form-control"
         name = {this.props.name}
         value = {value}
-        placeholder={this.props.placeholder} />
+        onChange = {this.handleInputChange.bind(this)}
+        placeholder={this.props.placeholder}
+        />
     ) ;
   }
 }

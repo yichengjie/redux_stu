@@ -144,10 +144,10 @@ Validator.prototype.isValid = function (formData,path) {
         'val:', val
       );
       //如果不是必填项，当值为空字时，不校验
-      isRequired = isRequired || ruleName.indexOf('Required') != -1;
-      if (ruleName !== 'required' && !isRequired && val === '') {
-        continue;
-      }
+      // isRequired = isRequired || ruleName.indexOf('Required') != -1;
+      // if (ruleName !== 'required' && !isRequired && val === '') {
+      //   continue;
+      // }
       if (typeof(_this[ruleName]) === 'undefined') {
         throw new Error(path + ':' + ruleName + ' can not find.');
       }
@@ -214,7 +214,7 @@ Validator.prototype.isValid = function (formData,path) {
  */
 Validator.prototype.email = function (param, value) {
   var pass = true;
-
+  if(value==='') return true ;
   if (param === true) {
     pass = /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/.test(value);
   }
@@ -232,7 +232,7 @@ Validator.prototype.email = function (param, value) {
  */
 Validator.prototype.url = function url(param, value) {
   var pass = true;
-
+  if(value==='') return true ;
   if (param === true) {
     pass = /^(https?|s?ftp):\/\/(((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:)*@)?(((\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5]))|((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?)(:\d*)?)(\/((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)+(\/(([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)*)*)?)?(\?((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)|[\uE000-\uF8FF]|\/|\?)*)?(#((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)|\/|\?)*)?$/i.test(value);
   }
@@ -250,7 +250,7 @@ Validator.prototype.url = function url(param, value) {
  */
 Validator.prototype.date = function (param, value) {
   var pass = true;
-
+  if(value==='') return true ;
   if (param === true) {
     pass = !/Invalid|NaN/.test(new Date(value).toString());
   }
@@ -268,7 +268,7 @@ Validator.prototype.date = function (param, value) {
  */
 Validator.prototype.dataISO = function dataISO(param, value) {
   var pass = true;
-
+  if(value==='') return true ;
   if (param === true) {
     pass = /^\d{4}[\/\-](0?[1-9]|1[012])[\/\-](0?[1-9]|[12][0-9]|3[01])$/.test(value);
   }
@@ -286,7 +286,7 @@ Validator.prototype.dataISO = function dataISO(param, value) {
  */
 Validator.prototype.number = function number(param, value) {
   var result = true;
-
+  if(value==='') return true ;
   if (param === true) {
     result = /^(?:-?\d+|-?\d{1,3}(?:,\d{3})+)?(?:\.\d+)?$/.test(value);
   }
@@ -304,7 +304,7 @@ Validator.prototype.number = function number(param, value) {
  */
 Validator.prototype.digits = function digits(param, value) {
   var pass = true;
-
+  if(value==='') return true ;
   if (param === true) {
     pass = /^\d+$/.test(value);
   }
@@ -322,11 +322,9 @@ Validator.prototype.digits = function digits(param, value) {
  */
 Validator.prototype.required = function required(param, value) {
   var pass = true;
-
   if (pass === true) {
     return value.length > 0;
   }
-
   return pass;
 };
 
@@ -340,7 +338,7 @@ Validator.prototype.required = function required(param, value) {
  */
 Validator.prototype.cardNo = function cardNo(param, value) {
   var pass = true;
-
+  if(value==='') return true ;
   if (param === true) {
     var len = value.length, re;
     if (len == 15)
@@ -380,7 +378,7 @@ Validator.prototype.cardNo = function cardNo(param, value) {
  */
 Validator.prototype.qq = function qq(param, value) {
   var pass = true;
-
+  if(value==='') return true ;
   if (param === true) {
     var reg = /^[1-9][0-9]{4,14}$/;
     pass = reg.test(value);
@@ -398,7 +396,7 @@ Validator.prototype.qq = function qq(param, value) {
  */
 Validator.prototype.mobile = function mobile(param, value) {
   var pass = true;
-
+  if(value==='') return true ;
   if (param === true) {
     var length = value.length;
     var reg = /^((1)+\d{10})$/;
@@ -416,6 +414,7 @@ Validator.prototype.mobile = function mobile(param, value) {
  */
 Validator.prototype.phone = function phone(param, value) {
   var pass = true;
+  if(value==='') return true ;
   if (param === true) {
     var reg = /^((\d{10,11})|^((\d{7,8})|(\d{4}|\d{3})-(\d{7,8})|(\d{4}|\d{3})-(\d{7,8})-(\d{4}|\d{3}|\d{2}|\d{1})|(\d{7,8})-(\d{4}|\d{3}|\d{2}|\d{1}))$)$/;
     pass = reg.test(value);
@@ -434,7 +433,7 @@ Validator.prototype.phone = function phone(param, value) {
  */
 Validator.prototype.pwdMix = function pwdMix(param, value) {
   var pass = true;
-
+  if(value==='') return true ;
   if (param === true) {
     var reg = /[A-Za-z].*[0-9]|[0-9].*[A-Za-z]/;
     pass = reg.test(value);
@@ -451,6 +450,7 @@ Validator.prototype.pwdMix = function pwdMix(param, value) {
  * @returns {boolean}
  */
 Validator.prototype.min = function min(param, value) {
+  if(value==='') return true ;
   return value >= param;
 };
 
@@ -462,6 +462,7 @@ Validator.prototype.min = function min(param, value) {
  * @returns {boolean}
  */
 Validator.prototype.max = function max(param, value) {
+  if(value==='') return true ;
   return value <= param;
 };
 
@@ -474,6 +475,7 @@ Validator.prototype.max = function max(param, value) {
  * @returns {boolean}
  */
 Validator.prototype.minLength = function minLength(param, value) {
+  if(value==='') return true ;
   return value.length >= param;
 };
 
@@ -485,6 +487,7 @@ Validator.prototype.minLength = function minLength(param, value) {
  * @returns {boolean}
  */
 Validator.prototype.maxLength = function maxLength(param, value) {
+  if(value==='') return true ;
   return value.length <= param;
 };
 
@@ -497,6 +500,7 @@ Validator.prototype.maxLength = function maxLength(param, value) {
  * @returns {boolean}
  */
 Validator.prototype.range = function range(param, value) {
+  if(value==='') return true ;
   return value >= param[0] && value <= param[1];
 };
 
@@ -509,6 +513,7 @@ Validator.prototype.range = function range(param, value) {
  *      * @returns {boolean}
  *       */
 Validator.prototype.rangeLength = function rangeLength(param, val) {
+  if(value==='') return true ;
   return val.length >= param[0] && val.length <= param[1];
 };
 
@@ -522,7 +527,7 @@ Validator.prototype.rangeLength = function rangeLength(param, val) {
  */
 Validator.prototype.forbbidenChar = function forbbidenChar(param, value) {
   var pass = true;
-
+  if(value==='') return true ;
   if (param === true) {
     pass = /[&\\<>'"]/.test(value);
   }
@@ -539,6 +544,7 @@ Validator.prototype.forbbidenChar = function forbbidenChar(param, value) {
  * @returns {boolean}
  */
 Validator.prototype.zipCode = function zipCode(param, value) {
+  if(value==='') return true ;
   var pass = true;
   if (param === true) {
     pass = /^[0-9]{6}$/.test(value);
@@ -556,7 +562,7 @@ Validator.prototype.zipCode = function zipCode(param, value) {
  */
 Validator.prototype.number2point = function number(param, value) {
   var result = true;
-
+  if(value==='') return true ;
   if (param === true) {
     result = /^[0-9]+(.[0-9]{1,2})?$/.test(value);
   }

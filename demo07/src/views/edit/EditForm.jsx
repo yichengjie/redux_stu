@@ -3,6 +3,7 @@ import TablePublish from '../../containers/edit/TablePublish.js' ;
 import DatePickerInput from '../../components/DatePickerInput.jsx' ;
 import Validator from 'validator_lib' ;
 import _ from 'lodash' ;
+import rules from './rules' ;
 
  class EditForm extends Component {
    constructor(props) {
@@ -10,13 +11,6 @@ import _ from 'lodash' ;
       this.getValidatorData = this.getValidatorData.bind(this);
       this.renderHelpText = this.renderHelpText.bind(this);
       this.getClasses = this.getClasses.bind(this);
-   }
-
-   handleOnBlur (){
-     let name = "" ;
-     let value = "" ;
-     //进行validation操作，
-     this.props.handleValidateInput({name,value}) ;
    }
 
    getValidatorData() {
@@ -48,53 +42,20 @@ import _ from 'lodash' ;
    handleValidateInput(event){
      let target = event.target ;
      let name = target.name ;
+     this.handleValidateInput2(name) ;
+   }
+
+   handleValidateInput2(name){
      validator2.isValid(this.props.formData,name) ;
      let fieldErrors = validator2.fieldErrors() ;
      this.props.updateFieldErrors(fieldErrors) ;
-     console.info(fieldErrors) ;
    }
 
    componentDidMount(){
      var _self = this ;
      var validator = $("#myEditForm").validate({meta : ""});
 		 window.validator = validator ;
-     let rules = {
-       seqNum: {
-           required: true,
-           maxLength: 10,
-           message: {
-             required: '必须字段',
-             maxLength: '最大长度不能超过10位'
-           }
-         },
-         title:{
-            required: true,
-            brandTitle:'seqNum',
-            message: {
-              required: '必填字段',
-              brandTitle:'当序列号为 123 时，品牌集名称必须为 456'
-            }
-         },
-         startCity:{
-           geoA:"loc1",
-           tttt:'loc1',
-           message:{
-             geoA:'大区填写不正确',
-             tttt:'两者同时为空，或同时填写'
-           }
-         },
-         endCity:{
-           geoA:"loc2",
-           tttt:'loc2',
-           message:{
-             geoA:'大区填写不正确',
-             tttt:'两者同时为空，或同时填写'
-           }
-         }
-     } ;
-
      let validator2 = new Validator(rules) ;
-
      validator2.rule('brandTitle', function(param, val) {
        if(_self.props.formData.seqNum==='123'){
          if(val==='456'){
@@ -104,7 +65,6 @@ import _ from 'lodash' ;
        }
        return true ;
      }) ;
-
 
      validator2.rule('brandTitle', function(param, val) {
        if(_self.props.formData[param]==='123'){
@@ -126,8 +86,9 @@ import _ from 'lodash' ;
        return true ;
      }) ;
 
-     validator2.rule('tttt', function(param, val) {
-       console.info('-['+_self.props.formData[param]+']-','-['+val+']-') ;
+     //必填相互校验
+     validator2.rule('required2', function(param, val) {
+       //console.info('-['+_self.props.formData[param]+']-','-['+val+']-') ;
        if(_self.props.formData[param]===''){
          if(val===''){
            return true ;
@@ -199,6 +160,7 @@ import _ from 'lodash' ;
                               name ="startDate"
                               value = {this.props.formData.startDate}
                               handleInputChange = {this.props.handleInputChange}
+                              handleValidateInput = {this.handleValidateInput2.bind(this)}
                               placeholder="范围"
                             />
                         </div>
@@ -215,6 +177,7 @@ import _ from 'lodash' ;
                         </div>
                         <label htmlFor="endDate"
                           className="glyphicon glyphicon-calendar iconfont_box"></label>
+                        <span className="errorInfo_validate">{this.getErrorTip('startDate')}</span>
                     </div>
 
                     <div className="form-group">
