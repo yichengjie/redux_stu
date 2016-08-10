@@ -1,12 +1,7 @@
 import React ,{Component} from 'react';
 import TablePublish from '../../containers/edit/TablePublish.js' ;
 import DatePickerInput from '../../components/DatePickerInput.jsx' ;
-//import Joi from 'joi';
-//import validation from 'react-validation-mixin';
-//import strategy from 'joi-validation-strategy';
-//import classnames from 'classnames';
-import Validator from '../../components/validator.js' ;
-
+import Validator from 'validator_lib' ;
 
  class EditForm extends Component {
    constructor(props) {
@@ -53,7 +48,7 @@ import Validator from '../../components/validator.js' ;
      var validator = $("#myEditForm").validate({meta : ""});
 		 window.validator = validator ;
      let rules = {
-       username: {
+       seqNum: {
            required: true,
            maxLength: 10,
            message: {
@@ -62,8 +57,8 @@ import Validator from '../../components/validator.js' ;
            }
          }
      } ;
-     //let validator2 = new Validator(rules) ;
-
+     let validator2 = new Validator(rules) ;
+     window.validator2 = validator2 ;
    }
 
    render (){

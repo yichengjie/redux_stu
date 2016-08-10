@@ -25,7 +25,8 @@ module.exports = {
             bt_growl_lib:LIB_PATH+"/bt-grow/jquery.bootstrap-growl.js",
             is_loading_lib:LIB_PATH+"/is-loading/index.js",
             moment_lib:LIB_PATH+"/moment/index.js",
-            util_lib:LIB_PATH+"/util.js"
+            util_lib:LIB_PATH+"/util.js",
+            validator_lib:LIB_PATH+"/validator.js"
         }
     },
     module: {

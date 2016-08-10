@@ -42,9 +42,18 @@
 //     }
 //   }
 // } ;
-let _ = {log:function(...agrs){
-  console.log.apply(console, agrs);
-}} ;
+let _ = {
+  log:function(...agrs){
+    console.log.apply(console, agrs);
+  },
+  keys:function(obj){
+    obj = obj || {} ;
+    return Object.keys(obj) ;
+  },
+  isArray:function(arr){
+    return Object.prototype.toString.call(arr) === '[object Array]';
+  }
+} ;
 
 /**
  * 封装我们的Validator对象
@@ -182,6 +191,7 @@ Validator.prototype.isValid = function (formData,path) {
   } else {
     //全部校验
     //循环所有的path
+
     _.keys(rules).forEach(function (path) {
       validate(path);
     });

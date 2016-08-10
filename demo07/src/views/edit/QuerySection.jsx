@@ -12,7 +12,9 @@ class QuerySection extends Component {
        flag = false ;
      }
      var jqFlag = validator.form() ;
-     console.info(formData) ;
+     let customeFlag = validator2.isValid(formData) ;
+     console.info("jqFlag : "+ jqFlag) ;
+     console.info("customeFlag : " + customeFlag) ;
     //  if(jqFlag){
     //    this.props.submitForm(flag) ;
     //  }
