@@ -5,6 +5,7 @@ export const HANDLE_CLICKTR =  'HANDLE_CLICKTR' ;
 export const ADD_TABLELINE = 'ADD_TABLELINE'  ;//addTableLine
 export const DELETE_TABLELINE = 'DELETE_TABLELINE' ;
 export const SUBMIT_FORM = 'SUBMIT_FORM' ;
+export const VALIDATION_INPUT = 'VALIDATION_INPUT' ;
 
 
 export function handleInputChange(param){
@@ -33,4 +34,8 @@ export function deleteTableLine (param){
 
 export function submitForm(flag){
   return {type:SUBMIT_FORM,flag} ;
+}
+
+export function handleValidateInput(param){
+  return {type:VALIDATION_INPUT,param} ;
 }

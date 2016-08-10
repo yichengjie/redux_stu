@@ -1,10 +1,11 @@
 import React ,{Component} from 'react';
 import TablePublish from '../../containers/edit/TablePublish.js' ;
 import DatePickerInput from '../../components/DatePickerInput.jsx' ;
-import Joi from 'joi';
+//import Joi from 'joi';
 //import validation from 'react-validation-mixin';
 //import strategy from 'joi-validation-strategy';
 //import classnames from 'classnames';
+import Validator from '../../components/validator.js' ;
 
 
  class EditForm extends Component {
@@ -16,6 +17,13 @@ import Joi from 'joi';
       this.getValidatorData = this.getValidatorData.bind(this);
       this.renderHelpText = this.renderHelpText.bind(this);
       this.getClasses = this.getClasses.bind(this);
+   }
+
+   handleOnBlur (){
+     let name = "" ;
+     let value = "" ;
+     //进行validation操作，
+     this.props.handleValidateInput({name,value}) ;
    }
 
    getValidatorData() {
@@ -47,6 +55,21 @@ import Joi from 'joi';
    componentDidMount(){
      var validator = $("#myEditForm").validate({meta : ""});
 		 window.validator = validator ;
+     let rules = {
+       username: {
+           required: true,
+           maxLength: 10,
+           message: {
+             required: 'username is required',
+             maxLength: 'username max length is 10'
+           }
+         }
+     } ;
+     let validator2 = new Validator(rules) ;
+
+
+
+
    }
 
    render (){
@@ -68,8 +91,6 @@ import Joi from 'joi';
                               onChange = {this.handleInputChange.bind(this)}
                               placeholder="数字"/>
                         </div>
-                        {this.renderHelpText(this.props.getValidationMessages('seqNum'))}
-
                     </div>
                     <div className="form-group">
                         <label className="pure-u-1-8 control-label">品牌集名称</label>

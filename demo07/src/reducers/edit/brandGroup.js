@@ -64,6 +64,9 @@ export default function brandGroup(state = initState, action) {
         return initState ;
       }
       return state ;
+    case VALIDATION_INPUT:
+
+      break;
     case ADD_BRANDGROUP:
       return {};
     default:
