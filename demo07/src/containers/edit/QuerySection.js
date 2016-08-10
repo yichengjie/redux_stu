@@ -1,16 +1,18 @@
-import {submitForm} from '../../actions/edit/actions.js' ;
+import {submitForm,updateFieldErrors} from '../../actions/edit/actions.js' ;
 import {connect} from 'react-redux' ;
 import QuerySection from '../../views/edit/QuerySection.jsx' ;
 
 let mapState2Props = (state,ownProp) =>{
   return {
-    formData:state.brandGroup
+    formData:state.brandGroup,
+    fieldErrors:state.fieldErrors
   };
 } ;
 
 let mapDispatch2Props = (dispatch,ownProp) => {
   return {
-    submitForm: (param) => dispatch(submitForm(param))
+    submitForm: (param) => dispatch(submitForm(param)),
+    updateFieldErrors:(param) => dispatch(updateFieldErrors(param))
   } ;
 };
 

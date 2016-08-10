@@ -52,27 +52,44 @@ import Validator from 'validator_lib' ;
        seqNum: {
            required: true,
            maxLength: 10,
-           seqNum:true,
            message: {
-             required: 'username is required',
-             maxLength: 'username max length is 10',
-             seqNum:'当序列号为 123 时，品牌集名称必须为 456 '
+             required: '必须字段',
+             maxLength: '最大长度不能超过10位'
            }
+         },
+         title:{
+            required: true,
+            brandTitle:true,
+            message: {
+              required: '必填字段',
+              brandTitle:'当序列号为 123 时，品牌集名称必须为 456'
+            }
          }
      } ;
+
      let validator2 = new Validator(rules) ;
 
-     validator2.rule('seqNum', function(param, val) {
-       if(val==='123'){
-         if(_self.props.formData.title==='456'){
+     validator2.rule('brandTitle', function(param, val) {
+       if(_self.props.formData.seqNum==='123'){
+         if(val==='456'){
            return true ;
          }
          return false;
        }
        return true ;
      }) ;
-
      window.validator2 = validator2 ;
+   }
+
+
+   getErrorTip(name){
+     let fieldErrors = this.props.fieldErrors ;
+     let tip = "" ;
+     let tmpTip = fieldErrors[name] ;
+     if(tmpTip&&tmpTip['message']){
+       tip = tmpTip['message'] ;
+     }
+     return tip ;
    }
 
    render (){
@@ -94,6 +111,7 @@ import Validator from 'validator_lib' ;
                               onChange = {this.handleInputChange.bind(this)}
                               placeholder="数字"/>
                         </div>
+                        <span className="errorInfo_validate">{this.getErrorTip('seqNum')}</span>
                     </div>
 
                     <div className="form-group">
@@ -105,6 +123,7 @@ import Validator from 'validator_lib' ;
                               onChange = {this.handleInputChange.bind(this)}
                               placeholder="数字" />
                         </div>
+                        <span className="errorInfo_validate">{this.getErrorTip('title')}</span>
                     </div>
 
                     <div className="form-group">

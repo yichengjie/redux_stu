@@ -4,7 +4,8 @@ import {handleInputChange} from  '../../actions/edit/actions.js' ;
 
 let mapState2Props = (state,ownProp) =>{
   return {
-    formData:state.brandGroup
+    formData:state.brandGroup,
+    fieldErrors:state.fieldErrors
   } ;
 };
 let mapDispatch2Props = (dispatch,ownProp) => {

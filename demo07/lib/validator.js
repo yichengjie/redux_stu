@@ -179,7 +179,8 @@ Validator.prototype.isValid = function (formData,path) {
         message: validatePassTip
       };
     }
-    Object.assign(_this.fieldErrors,retObj) ;
+    _this.fieldErrors[path] = retObj ;
+    //Object.assign(_this.fieldErrors,retObj) ;
   };
   //部分校验
   if (path != null) {

@@ -1,11 +1,9 @@
-import {VALIDATION_INPUT} from '../../actions/edit/actions.js' ;
-
+import {UPDATE_FIELDERRORS} from '../../actions/edit/actions.js' ;
 
 export default function fieldErrors(state = {}, action) {
   switch (action.type) {
-    case VALIDATION_INPUT:
-    
-      return state ;
+    case UPDATE_FIELDERRORS:
+      return  Object.assign({},state,action.param);
     default:
       return state ;
   }

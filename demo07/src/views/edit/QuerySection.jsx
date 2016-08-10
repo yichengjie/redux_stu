@@ -16,10 +16,12 @@ class QuerySection extends Component {
      let fieldErrors = validator2.fieldErrors() ;
      console.info("jqFlag : "+ jqFlag) ;
      console.info("customeFlag : " + customeFlag) ;
-     console.info("fieldErrors : " ,fieldErrors) ;
+     console.info("fieldErrors : " ,JSON.stringify(fieldErrors)) ;
+     this.props.updateFieldErrors(fieldErrors) ;
     //  if(jqFlag){
     //    this.props.submitForm(flag) ;
     //  }
+
   }
   render(){
     return (
