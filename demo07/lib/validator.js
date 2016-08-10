@@ -44,7 +44,7 @@
 // } ;
 var _ = {
   log:function(){
-    console.log.apply(console, arguments);
+    //console.log.apply(console, arguments);
   },
   keys:function(obj){
     obj = obj || {} ;

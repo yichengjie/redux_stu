@@ -1,6 +1,6 @@
 import EditForm from '../../views/edit/EditForm.jsx' ;
 import {connect} from 'react-redux';
-import {handleInputChange} from  '../../actions/edit/actions.js' ;
+import {handleInputChange,updateFieldErrors} from  '../../actions/edit/actions.js' ;
 
 let mapState2Props = (state,ownProp) =>{
   return {
@@ -10,7 +10,8 @@ let mapState2Props = (state,ownProp) =>{
 };
 let mapDispatch2Props = (dispatch,ownProp) => {
   return {
-    handleInputChange:(param) => dispatch(handleInputChange(param))
+    handleInputChange:(param) => dispatch(handleInputChange(param)),
+    updateFieldErrors:(param) => dispatch(updateFieldErrors(param))
   };
 } ;
 

@@ -2,6 +2,7 @@ import React ,{Component} from 'react';
 import TablePublish from '../../containers/edit/TablePublish.js' ;
 import DatePickerInput from '../../components/DatePickerInput.jsx' ;
 import Validator from 'validator_lib' ;
+import _ from 'lodash' ;
 
  class EditForm extends Component {
    constructor(props) {
@@ -44,6 +45,15 @@ import Validator from 'validator_lib' ;
      this.props.handleInputChange({name,value}) ;
    }
 
+   handleValidateInput(event){
+     let target = event.target ;
+     let name = target.name ;
+     validator2.isValid(this.props.formData,name) ;
+     let fieldErrors = validator2.fieldErrors() ;
+     this.props.updateFieldErrors(fieldErrors) ;
+     console.info(fieldErrors) ;
+   }
+
    componentDidMount(){
      var _self = this ;
      var validator = $("#myEditForm").validate({meta : ""});
@@ -59,11 +69,27 @@ import Validator from 'validator_lib' ;
          },
          title:{
             required: true,
-            brandTitle:true,
+            brandTitle:'seqNum',
             message: {
               required: '必填字段',
               brandTitle:'当序列号为 123 时，品牌集名称必须为 456'
             }
+         },
+         startCity:{
+           geoA:"loc1",
+           tttt:'loc1',
+           message:{
+             geoA:'大区填写不正确',
+             tttt:'两者同时为空，或同时填写'
+           }
+         },
+         endCity:{
+           geoA:"loc2",
+           tttt:'loc2',
+           message:{
+             geoA:'大区填写不正确',
+             tttt:'两者同时为空，或同时填写'
+           }
          }
      } ;
 
@@ -78,6 +104,43 @@ import Validator from 'validator_lib' ;
        }
        return true ;
      }) ;
+
+
+     validator2.rule('brandTitle', function(param, val) {
+       if(_self.props.formData[param]==='123'){
+         if(val==='456'){
+           return true ;
+         }
+         return false;
+       }
+       return true ;
+     }) ;
+
+     validator2.rule('geoA', function(param, val) {
+       if(_self.props.formData[param]==='A'){
+         if(_.includes(['1','2','3'],val)){
+           return true ;
+         }
+         return false;
+       }
+       return true ;
+     }) ;
+
+     validator2.rule('tttt', function(param, val) {
+       console.info('-['+_self.props.formData[param]+']-','-['+val+']-') ;
+       if(_self.props.formData[param]===''){
+         if(val===''){
+           return true ;
+         }
+         return false ;
+       }else{
+         if(val===''){
+           return false ;
+         }
+         return true ;
+       }
+     }) ;
+
      window.validator2 = validator2 ;
    }
 
@@ -109,6 +172,7 @@ import Validator from 'validator_lib' ;
                             <input type="text" name ="seqNum" className="form-control"
                               value = {this.props.formData.seqNum}
                               onChange = {this.handleInputChange.bind(this)}
+                              onBlur = {this.handleValidateInput.bind(this)}
                               placeholder="数字"/>
                         </div>
                         <span className="errorInfo_validate">{this.getErrorTip('seqNum')}</span>
@@ -121,6 +185,7 @@ import Validator from 'validator_lib' ;
                               name ="title"
                               value = {this.props.formData.title}
                               onChange = {this.handleInputChange.bind(this)}
+                              onBlur = {this.handleValidateInput.bind(this)}
                               placeholder="数字" />
                         </div>
                         <span className="errorInfo_validate">{this.getErrorTip('title')}</span>
@@ -174,8 +239,10 @@ import Validator from 'validator_lib' ;
                             name ="startCity"
                             onChange = {this.handleInputChange.bind(this)}
                             value ={this.props.formData.startCity}
+                            onBlur = {this.handleValidateInput.bind(this)}
                             placeholder="范围" />
                         </div>
+                        <span className="errorInfo_validate">{this.getErrorTip('startCity')}</span>
                     </div>
 
                     <div className="form-group">
@@ -199,8 +266,10 @@ import Validator from 'validator_lib' ;
                               name ="endCity"
                               onChange = {this.handleInputChange.bind(this)}
                               value ={this.props.formData.endCity}
+                              onBlur = {this.handleValidateInput.bind(this)}
                               placeholder="范围" />
                         </div>
+                        <span className="errorInfo_validate">{this.getErrorTip('endCity')}</span>
                     </div>
 
                     <div className="form-group">
