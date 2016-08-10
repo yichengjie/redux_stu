@@ -92,6 +92,8 @@ import Validator from '../../components/validator.js' ;
                               placeholder="数字"/>
                         </div>
                     </div>
+
+                    
                     <div className="form-group">
                         <label className="pure-u-1-8 control-label">品牌集名称</label>
                         <div className="pure-u-1-3">
