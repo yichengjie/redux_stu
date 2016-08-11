@@ -5,5 +5,6 @@ let reducer = combineReducers({
 	 brandGroup,
 	 fieldErrors
 }) ;
-let store = createStore(reducer) ;
+//let store = createStore(reducer) ;
+let store = createStore(reducer, window.devToolsExtension && window.devToolsExtension());
 export default store;

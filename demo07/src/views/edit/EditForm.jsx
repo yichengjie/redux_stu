@@ -11,6 +11,8 @@ import rules from './rules' ;
       this.getValidatorData = this.getValidatorData.bind(this);
       this.renderHelpText = this.renderHelpText.bind(this);
       this.getClasses = this.getClasses.bind(this);
+      let validator2 = new Validator(rules) ;
+      window.validator2 = validator2 ;
    }
 
    getValidatorData() {
@@ -55,7 +57,7 @@ import rules from './rules' ;
      var _self = this ;
      var validator = $("#myEditForm").validate({meta : ""});
 		 window.validator = validator ;
-     let validator2 = new Validator(rules) ;
+
      validator2.rule('brandTitle', function(param, val) {
        if(_self.props.formData.seqNum==='123'){
          if(val==='456'){
@@ -102,7 +104,7 @@ import rules from './rules' ;
        }
      }) ;
 
-     window.validator2 = validator2 ;
+
    }
 
 
