@@ -52,6 +52,7 @@
     "jquery": "^1.12.4",
     "lodash": "^4.14.1",
     "react": "^15.2.1",
+    "react-bootstrap": "^0.30.2",
     "react-dom": "^15.2.1",
     "react-redux": "^4.4.5",
     "react-validation-mixin": "^5.4.0",
