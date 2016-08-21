@@ -1,6 +1,8 @@
-import {Form,FormGroup,ControlLabel,InputGroup} from 'react-bootstrap'; 
+import React,{Component} from 'react';
+import {Form,FormGroup,FormControl,
+  ControlLabel,
+  InputGroup} from 'react-bootstrap';
 
-import React,{Component} from 'react'; 
 export default class App extends Component {
     constructor(props){
         super(props) ;
