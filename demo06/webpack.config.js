@@ -40,7 +40,6 @@ module.exports = {
         loaders: [
             {
                 test: /.(jsx|js)?$/,
-                loader: 'babel',
                 exclude: /(node_modules|bower_components|lib)/,
                 loader: 'babel', // 'babel-loader' is also a legal name to reference
                 query: {
