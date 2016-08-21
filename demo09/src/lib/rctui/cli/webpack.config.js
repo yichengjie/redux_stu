@@ -5,19 +5,30 @@ var precss = require('precss');
 
 module.exports = {
   entry: {
-    'demo': "./src/main.js"
+    'demo': "./demo/index.js"
   },
   output: {
-    path: path.join(__dirname, 'dist'),
-    filename: 'bundle.js'
+    path: path.join(__dirname, 'build'),
+    filename: '[name].js'
   },
+  externals: {'react': 'React', 'react-dom': 'ReactDOM'},
+  plugins: [
+    new webpack.optimize.OccurenceOrderPlugin(),
+    new webpack.optimize.UglifyJsPlugin({
+      compressor: {
+        warnings: false
+      }
+    })
+  ],
   module: {
     loaders: [
       {
         test: /\.jsx?$/,
         loader: 'babel',
-        exclude: /(node_modules|bower_components)/,
-        include: [path.resolve(__dirname, "src")],
+        query: {
+          presets: ["react", "es2015"],
+          plugins: ["transform-object-rest-spread"]
+        }
       },
       {
         test: /\.(css|less)$/,
