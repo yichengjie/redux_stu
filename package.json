@@ -65,6 +65,7 @@
     "redux-form": "^5.3.2",
     "refetch": "^0.2.1",
     "underscore": "^1.8.3",
-    "uniquid": "^1.1.4"
+    "uniquid": "^1.1.4",
+    "validate-chain": "^1.1.1"
   }
 }
