@@ -3,7 +3,7 @@ import VC from "validate-chain";
 
 var objectData = {age:22,name:"eisneim",gender:"guy",email:"ss.kjk",nested:{a:{b:{v:33}}}} ;
 
-function demo01() {
+export default function demo01() {
     var vc = new VC( objectData ) ;
     vc.check("email").email()
         .check("desc").alias("描述").required()
@@ -24,4 +24,7 @@ function demo01() {
     // vc.errorFields: [ "desc", "age", ... ]
 }
 
-export default demo01;
+
+
+
+//export default demo01;
