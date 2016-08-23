@@ -8,21 +8,9 @@ import rules from './rules' ;
  class EditForm extends Component {
    constructor(props) {
       super(props) ;
-      this.getValidatorData = this.getValidatorData.bind(this);
-      this.renderHelpText = this.renderHelpText.bind(this);
       this.getClasses = this.getClasses.bind(this);
       let validator2 = new Validator(rules) ;
       window.validator2 = validator2 ;
-   }
-
-   getValidatorData() {
-      return this.props.formData ;
-   }
-   //<span className="errorInfo_validate">这里是错误提示信息</span>
-   renderHelpText(message) {
-     return (
-       <span className="errorInfo_validate">{message}</span>
-     );
    }
 
    getClasses(field) {
@@ -48,6 +36,7 @@ import rules from './rules' ;
    }
 
    handleValidateInput2(name){
+     console.info('edit form handleValidateInput2 ...')  ;
      validator2.isValid(this.props.formData,name) ;
      let fieldErrors = validator2.fieldErrors() ;
      this.props.updateFieldErrors(fieldErrors) ;

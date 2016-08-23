@@ -21,6 +21,13 @@ class DatePickerInput extends Component {
     this.setState({value}) ;
   }
 
+  handleValidateInput(){
+    if(this.props.handleValidateInput){
+      console.info('validate .....') ;
+      this.props.handleValidateInput(this.props.name);
+    }
+  }
+
   handleInputChange(event){
     let value = event.target.value ;
     console.info(value) ;
@@ -36,7 +43,9 @@ class DatePickerInput extends Component {
        showButtonPanel:true,
        onSelect:function(dateText,picker){
           _self.handleInputChange2(dateText) ;
-          _self.props.handleValidateInput(_self.props.name);
+          if(_self.props.handleValidateInput){
+             _self.props.handleValidateInput(_self.props.name);
+          }
        }
      }) ;
   }
@@ -51,6 +60,7 @@ class DatePickerInput extends Component {
         value = {value}
         onChange = {this.handleInputChange.bind(this)}
         placeholder={this.props.placeholder}
+        onBlur = {this.handleValidateInput.bind(this)}
         />
     ) ;
   }
