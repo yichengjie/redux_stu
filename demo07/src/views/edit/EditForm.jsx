@@ -55,7 +55,6 @@ import classNames from 'classnames' ;
    }
 
    handleValidateInput2(name){
-     console.info('edit form handleValidateInput2 ...')  ;
      validator2.isValid(this.props.formData,name) ;
      let fieldErrors = validator2.fieldErrors() ;
      this.props.updateFieldErrors(fieldErrors) ;
