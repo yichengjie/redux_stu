@@ -17,6 +17,14 @@ export default {
          brandTitle:'当序列号为 123 时，品牌集名称必须为 456'
        }
     },
+    loc1:{
+        required2:'startCity',
+        geoA:"loc1",
+        message:{
+          required2:'两者同时为空，或同时填写',
+          geoA:'大区填写不正确'
+        }
+    },
     startCity:{
       required2:'loc1',
       geoA:"loc1",
@@ -36,7 +44,13 @@ export default {
     startDate:{
        required: true,
        message:{
-         required: '销售日期必填'
+         required: '起始日期必填'
+       }
+    },
+    endDate:{
+       required: true,
+       message:{
+         required: '截止日期必填'
        }
     }
 } ;
