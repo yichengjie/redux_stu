@@ -5,8 +5,6 @@ import React,{Component} from 'react' ;
 var ReactUI = require('./lib/rctui') ;
 var Grid = ReactUI.Grid ;
 var Button = ReactUI.Button ;
-
-
 export default class App extends Component{
     constructor(props){
         super(props) ;
