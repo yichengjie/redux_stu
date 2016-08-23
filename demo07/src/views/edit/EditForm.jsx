@@ -134,6 +134,7 @@ import classNames from 'classnames' ;
              <div className="content_layout">
                 <span className="left text-danger">必填项</span>
                 <div className="right">
+
                    <div className={this.getClasses('seqNum')}>
                         <label className="pure-u-1-8 control-label">序列号</label>
                         <div className="pure-u-1-3">
