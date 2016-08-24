@@ -4,34 +4,41 @@ import DatePickerInput from '../../components/DatePickerInput.jsx' ;
 import Validator from 'validator_lib' ;
 import _ from 'lodash' ;
 import rules from './rules' ;
+import classNames from 'classnames' ;
 
  class EditForm extends Component {
    constructor(props) {
       super(props) ;
-      this.getValidatorData = this.getValidatorData.bind(this);
-      this.renderHelpText = this.renderHelpText.bind(this);
       this.getClasses = this.getClasses.bind(this);
       let validator2 = new Validator(rules) ;
       window.validator2 = validator2 ;
    }
 
-   getValidatorData() {
-      return this.props.formData ;
-   }
-   //<span className="errorInfo_validate">这里是错误提示信息</span>
-   renderHelpText(message) {
-     return (
-       <span className="errorInfo_validate">{message}</span>
-     );
-   }
+   getClasses(name,name2) {
+     let fieldErrors = this.props.fieldErrors ;
+     let tipFlag = false ;
 
-   getClasses(field) {
-     return classnames({
+     let tipFlag1 = true ;
+     let tmpTip1 = fieldErrors[name] ;
+     if(tmpTip1){
+       tipFlag1 = tmpTip1['result'] ;
+     }
+
+     let tipFlag2 = true ;
+     if(name2){
+       let tmpTip2 = fieldErrors[name2] ;
+       if(tmpTip2){
+         tipFlag2 = tmpTip2['result'] ;
+       }
+     }
+     if(tipFlag1&&tipFlag2){
+       tipFlag = true ;
+     }
+     return classNames({
        'form-group': true,
-       'has-error': !this.props.isValid(field)
+       'has-error': !tipFlag
      });
    }
-
 
    handleInputChange(event){
      let target = event.target ;
@@ -51,6 +58,17 @@ import rules from './rules' ;
      validator2.isValid(this.props.formData,name) ;
      let fieldErrors = validator2.fieldErrors() ;
      this.props.updateFieldErrors(fieldErrors) ;
+   }
+
+
+   getErrorTip(name){
+     let fieldErrors = this.props.fieldErrors ;
+     let tip = "" ;
+     let tmpTip = fieldErrors[name] ;
+     if(tmpTip&&tmpTip['message']){
+       tip = tmpTip['message'] ;
+     }
+     return tip ;
    }
 
    componentDidMount(){
@@ -103,19 +121,6 @@ import rules from './rules' ;
          return true ;
        }
      }) ;
-
-
-   }
-
-
-   getErrorTip(name){
-     let fieldErrors = this.props.fieldErrors ;
-     let tip = "" ;
-     let tmpTip = fieldErrors[name] ;
-     if(tmpTip&&tmpTip['message']){
-       tip = tmpTip['message'] ;
-     }
-     return tip ;
    }
 
    render (){
@@ -129,7 +134,8 @@ import rules from './rules' ;
              <div className="content_layout">
                 <span className="left text-danger">必填项</span>
                 <div className="right">
-                   <div className="form-group">
+
+                   <div className={this.getClasses('seqNum')}>
                         <label className="pure-u-1-8 control-label">序列号</label>
                         <div className="pure-u-1-3">
                             <input type="text" name ="seqNum" className="form-control"
@@ -141,7 +147,7 @@ import rules from './rules' ;
                         <span className="errorInfo_validate">{this.getErrorTip('seqNum')}</span>
                     </div>
 
-                    <div className="form-group">
+                    <div className={this.getClasses('title')}>
                         <label className="pure-u-1-8 control-label">品牌集名称</label>
                         <div className="pure-u-1-3">
                             <input type="text"  className="form-control"
@@ -154,7 +160,7 @@ import rules from './rules' ;
                         <span className="errorInfo_validate">{this.getErrorTip('title')}</span>
                     </div>
 
-                    <div className="form-group">
+                    <div className={this.getClasses('startDate','endDate')}>
                         <label className="pure-u-1-8 control-label">销售日期</label>
                         <div className="pure-u-1-6">
                             <DatePickerInput
@@ -174,21 +180,24 @@ import rules from './rules' ;
                               name ="endDate"
                               value = {this.props.formData.endDate}
                               handleInputChange = {this.props.handleInputChange}
+                              handleValidateInput = {this.handleValidateInput2.bind(this)}
                               placeholder="范围"
                             />
                         </div>
                         <label htmlFor="endDate"
                           className="glyphicon glyphicon-calendar iconfont_box"></label>
                         <span className="errorInfo_validate">{this.getErrorTip('startDate')}</span>
+                        <span className="errorInfo_validate">{this.getErrorTip('endDate')}</span>
                     </div>
 
-                    <div className="form-group">
+                    <div className={this.getClasses('loc1','startCity')}>
                         <label className="pure-u-1-8 control-label">区域1</label>
                         <div className="pure-u-1-6">
                             <select name="loc1" name ="loc1"
                               className="form-control"
                                value ={this.props.formData.loc1}
                                onChange = {this.handleInputChange.bind(this)}
+                               onBlur = {this.handleValidateInput.bind(this)}
                                >
                                 <option value="">选择</option>
                                 <option value="A">A-大区</option>
@@ -210,7 +219,7 @@ import rules from './rules' ;
                         <span className="errorInfo_validate">{this.getErrorTip('startCity')}</span>
                     </div>
 
-                    <div className="form-group">
+                    <div className={this.getClasses('loc2','endCity')}>
                         <label className="pure-u-1-8 control-label">区域2</label>
                         <div className="pure-u-1-6">
                             <select name="loc2"
