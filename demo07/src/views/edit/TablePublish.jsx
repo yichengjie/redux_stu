@@ -34,7 +34,8 @@
    renderTr(item){
      var id = item.id ;
      return (
-       <tr key ={id} onClick = {this.handleClickTr.bind(this,id)} className = {item.checked ? "selected_td" : ""}>
+       <tr key ={id} onClick = {this.handleClickTr.bind(this,id)}
+          className = {item.checked ? "selected_td" : ""}>
          <td>
              <select  className="common_input"
                   style={{"width": "98%"}}
