@@ -1,0 +1,1 @@
+#在demo06的基础上，引入jquery validate对子表的校验
