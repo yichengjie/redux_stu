@@ -35,7 +35,7 @@ module.exports = {
         ]
     },
     plugins: [
-        new webpack.BannerPlugin('{compony travelsky-dbky ,\n author: yicj,\n email : 626659321@qq.com,\ncreate-date:2016/05/05}')
+        new webpack.BannerPlugin('{\n author: yicj,\n email : 626659321@qq.com,\ncreate-date:2016/05/05}')
         // ,new webpack.optimize.UglifyJsPlugin({
         //     compress: {warnings: false}
         // }),
